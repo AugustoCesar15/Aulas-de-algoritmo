@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: 657px;
+        background-image: linear-gradient(to bottom right, rgb(211, 17, 113), rgb(72, 14, 76));
+    }
+
+    p,
+    a,
+    h2,
+    h3 {
+        font-family: 'Ubuntu';
+    }
+
+    nav {
+        width: 100%;
+        height: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .logo {
+        width: 30%;
+        height: 100px;
+        /* border: 1px white solid; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .logo h1 {
+        color: aliceblue;
+        font-family: 'Dancing Script';
+        font-size: 60px;
+        animation: example 1s infinite alternate;
+    }
+    @keyframes example {
+        0% {
+            color: rgb(248, 6, 155);
+        }
+        
+        100% {
+            color: rgb(252, 233, 242);
+        }
+    }
+
+
+    nav .bar {
+        width: 70%;
+        height: 100px;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding-right: 30px;
+    }
+
+    nav .bar ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+    }
+
+    nav .bar ul li {
+        margin: 0 25px;
+    }
+
+    nav .bar ul li a {
+        color: aliceblue;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Else If</h1>
+        </div>
+        <div class="bar">
+            <ul>
+                <li class="aqui"><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">6</a></li>
+                <li><a href="">7</a></li>
+                <li><a href="">8</a></li>
+                <li><a href="">9</a></li>
+                <li><a href="">10</a></li>
+                <li><a href="">11</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+
+</html>

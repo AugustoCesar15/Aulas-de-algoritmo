@@ -99,7 +99,9 @@
         margin: 10px 0;
         outline: 0;
     }
-    .atividade button, input {
+
+    .atividade button,
+    input {
         outline: 0;
         margin: 20px 0;
     }
@@ -133,30 +135,25 @@
      -->
     <div class="atividade">
         <h2>Estações do ano</h2>
-        <select id="sel_estacoes">
-            <option value="">Verão</option>
-            <option value="">Outono</option>
-            <option value="">Primavera</option>
-            <option value="">Inverno</option>
+        <select id="sel_estacoes" onchange="estacao()">
+            <option value="">- Escolha uma estação -</option>
+            <option value="verao.jpg">Verão</option>
+            <option value="outono.jpg">Outono</option>
+            <option value="primavera.jpg">Primavera
+            </option>
+            <option value="frio-extremo.jpg">Inverno</option>
         </select>
-        <div id="resultado"></div>
+
+        <div id="resultado">
+            <img id="img_estacao" alt="" style="width: auto; height: 200px;">
+        </div>
     </div>
 </body>
 
 </html>
 <script>
-    // Você ainda terá que trabalhar por mais X anos para se aposentar.
-    function aposentar() {
-        var aposentar = Number(trabalhados.value)
-        var empresa = tipo_empresa.value
-        var falta = empresa - aposentar
-
-        if (falta < 0) {
-            alert('Já devia ter se aposentado')
-        } else {
-            resultado.innerHTML = `Você ainda terá que trabalhar por mais ${falta} anos para se aposentar.`
-        }
+    function estacao() {
+        img_estacao.src = `${sel_estacoes.value}`
     }
-
 
 </script>

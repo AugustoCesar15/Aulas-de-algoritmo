@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Estações do ano</h2>
+    <select id="sel_estacoes" onchange="estacao()">
+        <option
+            value="https://piauihoje.com/noticias/brasil/verao-deste-ano-sera-menos-quente-do-que-no-ano-passado-33829.html">
+            Verão</option>
+        <option value="https://dicasparaviagens.com.br/outono-curiosidades-e-caracteristicas/">Outono</option>
+        <option value="https://www.marabraz.com.br/blog/primavera-sua-linda-seja-muito-bem-vinda/">Primavera
+        </option>
+        <option value="./frio-extremo.jpg">Inverno</option>
+    </select>
+    <img src="" id="img_estacao" alt="">
+
+    </div>
+</body>
+
+</html>
+<script>
+    function estacao() {
+        img_estacao.src = `${sel_estacoes.value}`
+    }
+
+</script>
