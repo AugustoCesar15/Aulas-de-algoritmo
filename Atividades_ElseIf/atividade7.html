@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 1</title>
+    <title>Atividade 7</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
@@ -21,10 +21,7 @@
         background-image: linear-gradient(140deg, rgb(211, 17, 113), rgb(72, 14, 76));
     }
 
-    p,
-    a,
-    h2,
-    h3 {
+    p, a, h2,h3 {
         font-family: 'Ubuntu';
     }
 
@@ -134,7 +131,9 @@
 
     .atividade .desenvolvimento .titulo {
         width: 100%;
-        /* height: 80px; */
+        display: flex;
+        align-items: center;
+        /* border: 1px red solid; */
     }
 
     .atividade .desenvolvimento h2 {
@@ -166,8 +165,26 @@
         text-align: center;
         border: 0 solid;
         border-radius: 10px;
+        margin: 20px 0;
     }
-
+    .atividade .desenvolvimento .ativ2 button{
+        width: 45%;
+        height: 45px;
+        border: 0 solid;
+        border-radius: 10px;
+        background-color: rgb(211, 17, 113);
+        color: whitesmoke;
+        font-family: 'Ubuntu';
+        transition: all 1s;
+        outline: 0;
+    }
+    .atividade .desenvolvimento .ativ2 button:hover{
+        border: 2px rgb(211, 17, 113) solid;
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(211, 17, 113);
+        font-weight: 600;
+        outline: 0;
+    }
     .atividade .resposta {
         width: 35%;
         height: 300px;
@@ -195,13 +212,13 @@
         </div>
         <div class="bar">
             <ul>
-                <li class="aqui"><a href="./atividade1.html">1</a></li>
+                <li><a href="./atividade1.html">1</a></li>
                 <li><a href="./atividade2.html">2</a></li>
                 <li><a href="./atividade3.html">3</a></li>
                 <li><a href="./atividade4.html">4</a></li>
                 <li><a href="./atividade5.html">5</a></li>
                 <li><a href="./atividade6.html">6</a></li>
-                <li><a href="./atividade7.html">7</a></li>
+                <li class="aqui"><a href="./atividade7.html">7</a></li>
                 <li><a href="./atividade8.html">8</a></li>
                 <li><a href="./atividade9.html">9</a></li>
                 <li><a href="./atividade10.html">10</a></li>
@@ -215,44 +232,59 @@
 
     <!-- Atividade -->
     <!-- 
-        1. Crie um programa no qual um profissional de educação física possa determinar de 
-        forma mais rápida quais esportes uma pessoa tem uma boa altura para praticar.
+        7. Crie um programa o qual:
 
-        a) Solicite sua altura
+            a) Solicite o valor que o usuário tem economizado
 
-        b) Conforme vai digitando, deve aparecer abaixo uma dessas frases:
+            b) Ao clicar em "Poder de compra", exibir uma ou várias frases abaixo do dele, conforme estas regras:
 
-            "Você pode ser piloto de corrida" (altura até 1.65)
+            b.1) Caso o valor economizado seja igual ou menor que 0: Exibir SOMENTE a frase Nada de compras triste
 
-            "Você pode ser jogador de futebol" (altura +1.65 até 1.80)
+            b.2) Caso o valor economizado for maior que 0 e até 100: Exibir Viajem de ida e volta pra Praia Grande
 
-            "Você pode ser jogador de vôlei ou basquete" (altura + 1.80)
+            b.3) Caso o valor economizado seja maior que 100 e menor que 4000: Exibir abaixo da frase de b.2): Uma boa moto usada
+
+            b.4) Caso o valor economizado é a partir de 4000: Exibir abaixo da frase de b.3): Mais alguma bobagem legal
      -->
+
     <div class="atividade">
         <div class="desenvolvimento">
             <div class="titulo">
-                <h2>Qual é o melhor esporte?</h2>
+                <h2>  Quem economiza compra!  </h2>
             </div>
             <div class="ativ2">
-                <p>Informe sua altura: </p><br><input type="number" id="in_altura" onkeyup="mostrar()">
+                <p>Informe o valor que tem economizado: </p><input type="number" id="in_economia">
+                <button onclick="mostrar()">
+                    Poder de compra
+                </button>
             </div>
         </div>
         <div class="resposta" id="resultado"></div>
     </div>
-
 </body>
 
 </html>
 <script>
-    function mostrar() {
-        var altura = Number(in_altura.value)
+// b.1) Caso o valor economizado seja igual ou menor que 0: Exibir SOMENTE a frase Nada de compras triste
 
-        if (altura < 1.65) {
-            resultado.innerHTML = `<p>Você pode ser piloto de corrida</p>`
-        } else if (altura < 1.8) {
-            resultado.innerHTML = `<p>Você pode ser jogador de futebol</p>`
+// b.2) Caso o valor economizado for maior que 0 e até 100: Exibir Viajem de ida e volta pra Praia Grande
+
+// b.3) Caso o valor economizado seja maior que 100 e menor que 4000: Exibir abaixo da frase de b.2): Uma boa moto usada
+
+// b.4) Caso o valor economizado é a partir de 4000: Exibir abaixo da frase de b.3): Mais alguma bobagem legal
+
+    function mostrar() {
+        var eco = Number(in_economia.value)
+
+        if (eco <= 0) {
+            resultado.innerHTML = `<p>Nada de compras, triste</p>`
+        } else if (eco < 101) {
+            resultado.innerHTML = `<p>Viajem de ida e volta pra Praia Grande</p>`
+        } else if (eco < 4000) {
+            resultado.innerHTML = `<p>Viajem de ida e volta pra Praia Grande <br> Uma boa moto usada</p>`
         } else {
-            resultado.innerHTML = `<p>Você pode ser jogador de vôlei ou basquete</p>`
+            resultado.innerHTML = `<p>Viajem de ida e volta pra Praia Grande <br> Uma boa moto usada <br> Mais alguma bobagem legal</p>`
         }
+        
     }
 </script>

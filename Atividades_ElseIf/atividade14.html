@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 1</title>
+    <title>Atividade 14</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
@@ -134,22 +134,24 @@
 
     .atividade .desenvolvimento .titulo {
         width: 100%;
-        /* height: 80px; */
+        display: flex;
+        align-items: center;
+        /* border: 1px red solid; */
     }
 
     .atividade .desenvolvimento h2 {
         color: aliceblue;
         font-size: 2em;
-        /* margin-bottom: 20px; */
     }
 
     .atividade .desenvolvimento .ativ2 {
         width: 100%;
-        height: 200px;
+        height: 400px;
         display: flex;
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
+        margin-top: 50px;
         /* border: 1px rgb(252, 233, 242) solid; */
     }
 
@@ -166,6 +168,28 @@
         text-align: center;
         border: 0 solid;
         border-radius: 10px;
+        margin: 5px 0 20px;
+    }
+
+    .atividade .desenvolvimento .ativ2 button {
+        width: 45%;
+        height: 45px;
+        border: 0 solid;
+        border-radius: 10px;
+        background-color: rgb(211, 17, 113);
+        color: whitesmoke;
+        font-family: 'Ubuntu';
+        transition: all 1s;
+        outline: 0;
+        margin-bottom: 20px;
+    }
+
+    .atividade .desenvolvimento .ativ2 button:hover {
+        border: 2px rgb(211, 17, 113) solid;
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(211, 17, 113);
+        font-weight: 600;
+        outline: 0;
     }
 
     .atividade .resposta {
@@ -195,7 +219,7 @@
         </div>
         <div class="bar">
             <ul>
-                <li class="aqui"><a href="./atividade1.html">1</a></li>
+                <li><a href="./atividade1.html">1</a></li>
                 <li><a href="./atividade2.html">2</a></li>
                 <li><a href="./atividade3.html">3</a></li>
                 <li><a href="./atividade4.html">4</a></li>
@@ -208,51 +232,79 @@
                 <li><a href="./atividade11.html">11</a></li>
                 <li><a href="./atividade12.html">12</a></li>
                 <li><a href="./atividade13.html">13</a></li>
-                <li><a href="./atividade14.html">14</a></li>
+                <li class="aqui"><a href="./atividade14.html">14</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Atividade -->
     <!-- 
-        1. Crie um programa no qual um profissional de educação física possa determinar de 
-        forma mais rápida quais esportes uma pessoa tem uma boa altura para praticar.
-
-        a) Solicite sua altura
-
-        b) Conforme vai digitando, deve aparecer abaixo uma dessas frases:
-
-            "Você pode ser piloto de corrida" (altura até 1.65)
-
-            "Você pode ser jogador de futebol" (altura +1.65 até 1.80)
-
-            "Você pode ser jogador de vôlei ou basquete" (altura + 1.80)
+        14. Crie um programa o qual:
+            a) Tenha o seguinte texto no topo: Vida do Lutador: 1000
+            b) Abaixo do texto tenha uma foto de um Lutador em ótima condição
+            c) Tenha os botões "Apanhar" e "Concentrar força"
+            d) Ao clicar no "Apanhar", a vida do Lutador reduz em 100
+            e) Ao clicar no "Concentrar força", a vida do Lutador aumenta em 5%
+            f.A) Caso a vida do lutador chegue em 0 ou menos, exibir, abaixo do texto de a) a frase Lutador já era! e a foto do Lutador deve mudar para o mesmo personagem, mas todo machucado. Enquanto não chegar em 0, sempre que apanhar ou concentrar força, exiba, no mesmo lugar, a frase Lutador ainda vivo!
+            f.B) Caso a vida seja 0 ou menos, nenhum dos botões deve mais funcionar
      -->
+
     <div class="atividade">
         <div class="desenvolvimento">
             <div class="titulo">
-                <h2>Qual é o melhor esporte?</h2>
+                <h2> Fight! </h2>
             </div>
             <div class="ativ2">
-                <p>Informe sua altura: </p><br><input type="number" id="in_altura" onkeyup="mostrar()">
+                <button onclick="apanhar()">
+                    Apanhar
+                </button>
+                <button onclick="concentrar()">
+                    Concentrar força
+                </button>
             </div>
         </div>
-        <div class="resposta" id="resultado"></div>
+        <div class="resposta" id="resultado">
+            <!-- <img src="" id="imagem" alt="" height="200" width="auto"> -->
+        </div>
     </div>
-
 </body>
 
 </html>
 <script>
-    function mostrar() {
-        var altura = Number(in_altura.value)
+    var vida = 1000
+    var img = `<img src="./hf.png" height="150" width="auto">`
 
-        if (altura < 1.65) {
-            resultado.innerHTML = `<p>Você pode ser piloto de corrida</p>`
-        } else if (altura < 1.8) {
-            resultado.innerHTML = `<p>Você pode ser jogador de futebol</p>`
+    resultado.innerHTML = `<p>Vida Lutador: ${vida}</p> <br> ${img}`
+
+    function apanhar() {
+        vida = vida - 100
+        if (vida > 0) {
+            resultado.innerHTML = `<p>Vida Lutador: ${(vida).toFixed(2)}</p> <br> ${img} <br><p> Lutador ainda vivo!  </p>`
+
         } else {
-            resultado.innerHTML = `<p>Você pode ser jogador de vôlei ou basquete</p>`
+            vida = 0
+            img = `<img src="./hff.png" height="150" width="auto">`
+            resultado.innerHTML = `<p>Vida Lutador: ${(vida).toFixed(2)}</p> <br> ${img} <br><p>Lutador já era! </p>`
+
+
         }
     }
+    function concentrar() {
+        vida = vida + (vida * 0.05)
+        
+        if (vida > 0) {
+            resultado.innerHTML = `<p>Vida Lutador: ${(vida).toFixed(2)}</p> <br> ${img} <br><p> Lutador ainda vivo!  </p>`
+
+        } else {
+            vida = 0
+            img = `<img src="./hff.png" height="150" width="auto">`
+            resultado.innerHTML = `<p>Vida Lutador: ${(vida).toFixed(2)}</p> <br> ${img} <br><p>Lutador já era! </p>`
+
+
+        }
+    }
+
+
+
+
 </script>

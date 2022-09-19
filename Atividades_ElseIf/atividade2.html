@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 1</title>
+    <title>Atividade 2</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
@@ -21,10 +21,7 @@
         background-image: linear-gradient(140deg, rgb(211, 17, 113), rgb(72, 14, 76));
     }
 
-    p,
-    a,
-    h2,
-    h3 {
+    p, a, h2,h3 {
         font-family: 'Ubuntu';
     }
 
@@ -134,7 +131,9 @@
 
     .atividade .desenvolvimento .titulo {
         width: 100%;
-        /* height: 80px; */
+        display: flex;
+        align-items: center;
+        /* border: 1px red solid; */
     }
 
     .atividade .desenvolvimento h2 {
@@ -166,8 +165,26 @@
         text-align: center;
         border: 0 solid;
         border-radius: 10px;
+        margin: 20px 0;
     }
-
+    .atividade .desenvolvimento .ativ2 button{
+        width: 45%;
+        height: 45px;
+        border: 0 solid;
+        border-radius: 10px;
+        background-color: rgb(211, 17, 113);
+        color: whitesmoke;
+        font-family: 'Ubuntu';
+        transition: all 1s;
+        outline: 0;
+    }
+    .atividade .desenvolvimento .ativ2 button:hover{
+        border: 2px rgb(211, 17, 113) solid;
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(211, 17, 113);
+        font-weight: 600;
+        outline: 0;
+    }
     .atividade .resposta {
         width: 35%;
         height: 300px;
@@ -195,8 +212,8 @@
         </div>
         <div class="bar">
             <ul>
-                <li class="aqui"><a href="./atividade1.html">1</a></li>
-                <li><a href="./atividade2.html">2</a></li>
+                <li><a href="./atividade1.html">1</a></li>
+                <li class="aqui"><a href="./atividade2.html">2</a></li>
                 <li><a href="./atividade3.html">3</a></li>
                 <li><a href="./atividade4.html">4</a></li>
                 <li><a href="./atividade5.html">5</a></li>
@@ -215,44 +232,54 @@
 
     <!-- Atividade -->
     <!-- 
-        1. Crie um programa no qual um profissional de educação física possa determinar de 
-        forma mais rápida quais esportes uma pessoa tem uma boa altura para praticar.
+        2. Crie um programa que exibe a classe social de uma pessoa que mora em Tuvalu (um dos menores países do mundo) 
+        conforme a renda familiar mensal.
 
-        a) Solicite sua altura
+        a) Solicite a renda familiar mensal
 
-        b) Conforme vai digitando, deve aparecer abaixo uma dessas frases:
+        b) Ao clicar no botão “Analisar Renda”, deve aparecer abaixo uma dessas frases:   
 
-            "Você pode ser piloto de corrida" (altura até 1.65)
+            "Classe E" (até 250)
 
-            "Você pode ser jogador de futebol" (altura +1.65 até 1.80)
+            "Classe D" (+250 até 900)
 
-            "Você pode ser jogador de vôlei ou basquete" (altura + 1.80)
+            "Classe C" (+900 até 2500)
+
+            "Classe B" (+2500 até 9500)
+
+            "Classe A" (+9500)
      -->
+
     <div class="atividade">
         <div class="desenvolvimento">
             <div class="titulo">
-                <h2>Qual é o melhor esporte?</h2>
+                <h2> Classe Social Tuvalu </h2>
             </div>
             <div class="ativ2">
-                <p>Informe sua altura: </p><br><input type="number" id="in_altura" onkeyup="mostrar()">
+                <p>Informe sua renda familiar mensal:</p><input type="text" id="in_renda">
+                <button onclick="mostrar()">
+                    Analisar Renda
+                </button>
             </div>
         </div>
         <div class="resposta" id="resultado"></div>
     </div>
-
 </body>
 
 </html>
 <script>
     function mostrar() {
-        var altura = Number(in_altura.value)
-
-        if (altura < 1.65) {
-            resultado.innerHTML = `<p>Você pode ser piloto de corrida</p>`
-        } else if (altura < 1.8) {
-            resultado.innerHTML = `<p>Você pode ser jogador de futebol</p>`
+        var renda = Number(in_renda.value)
+        if (renda < 251) {
+            resultado.innerHTML = `<p>Classe E</p>`
+        } else if (renda < 901) {
+            resultado.innerHTML = `<p>Classe D</p>`
+        } else if (renda < 2501){
+            resultado.innerHTML = `<p>Classe C </p>`
+        } else if (renda < 9501){
+            resultado.innerHTML = `<p>Classe B </p>`
         } else {
-            resultado.innerHTML = `<p>Você pode ser jogador de vôlei ou basquete</p>`
+            resultado.innerHTML = `<p>Classe A </p>`
         }
     }
 </script>

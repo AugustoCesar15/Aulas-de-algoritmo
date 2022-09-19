@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 1</title>
+    <title>Atividade 8</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
@@ -21,10 +21,7 @@
         background-image: linear-gradient(140deg, rgb(211, 17, 113), rgb(72, 14, 76));
     }
 
-    p,
-    a,
-    h2,
-    h3 {
+    p, a, h2,h3 {
         font-family: 'Ubuntu';
     }
 
@@ -134,22 +131,24 @@
 
     .atividade .desenvolvimento .titulo {
         width: 100%;
-        /* height: 80px; */
+        display: flex;
+        align-items: center;
+        /* border: 1px red solid; */
     }
 
     .atividade .desenvolvimento h2 {
         color: aliceblue;
         font-size: 2em;
-        /* margin-bottom: 20px; */
     }
 
     .atividade .desenvolvimento .ativ2 {
         width: 100%;
-        height: 200px;
+        height: 400px;
         display: flex;
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
+        margin-top: 50px;
         /* border: 1px rgb(252, 233, 242) solid; */
     }
 
@@ -166,8 +165,26 @@
         text-align: center;
         border: 0 solid;
         border-radius: 10px;
+        margin: 5px 0 20px;
     }
-
+    .atividade .desenvolvimento .ativ2 button{
+        width: 45%;
+        height: 45px;
+        border: 0 solid;
+        border-radius: 10px;
+        background-color: rgb(211, 17, 113);
+        color: whitesmoke;
+        font-family: 'Ubuntu';
+        transition: all 1s;
+        outline: 0;
+    }
+    .atividade .desenvolvimento .ativ2 button:hover{
+        border: 2px rgb(211, 17, 113) solid;
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(211, 17, 113);
+        font-weight: 600;
+        outline: 0;
+    }
     .atividade .resposta {
         width: 35%;
         height: 300px;
@@ -195,14 +212,14 @@
         </div>
         <div class="bar">
             <ul>
-                <li class="aqui"><a href="./atividade1.html">1</a></li>
+                <li><a href="./atividade1.html">1</a></li>
                 <li><a href="./atividade2.html">2</a></li>
                 <li><a href="./atividade3.html">3</a></li>
                 <li><a href="./atividade4.html">4</a></li>
                 <li><a href="./atividade5.html">5</a></li>
                 <li><a href="./atividade6.html">6</a></li>
                 <li><a href="./atividade7.html">7</a></li>
-                <li><a href="./atividade8.html">8</a></li>
+                <li class="aqui"><a href="./atividade8.html">8</a></li>
                 <li><a href="./atividade9.html">9</a></li>
                 <li><a href="./atividade10.html">10</a></li>
                 <li><a href="./atividade11.html">11</a></li>
@@ -215,44 +232,69 @@
 
     <!-- Atividade -->
     <!-- 
-        1. Crie um programa no qual um profissional de educação física possa determinar de 
-        forma mais rápida quais esportes uma pessoa tem uma boa altura para praticar.
+        8. Uma nutricionista e precisa ajudar seus pacientes a não engordarem tanto na quarentena do Covid19. Ajude ela criando um programa o qual:
 
-        a) Solicite sua altura
+        a) Pergunte quantos pães franceses o usuário tem comido por dia
 
-        b) Conforme vai digitando, deve aparecer abaixo uma dessas frases:
+        b) Pergunte quantos pacotes de bolacha recheada o usuário tem comido por dia
 
-            "Você pode ser piloto de corrida" (altura até 1.65)
+        c) Pergunte quantos copos de achocolatado o usuário tem tomado por dia
 
-            "Você pode ser jogador de futebol" (altura +1.65 até 1.80)
+        d) Ao clicar em "Verificar calorias", calcule quantas calorias o usuário tem consumido com base nas 3 informações. Considere que um pão francês tem 50 calorias, um pacote de bolacha, 80 e um copo de achocolatado, 70.
 
-            "Você pode ser jogador de vôlei ou basquete" (altura + 1.80)
+        e) Após fazer o cálculo, exiba uma dessas frases, abaixo do botão:
+
+           "Parabéns, vai sair em forma da quarentena!", caso as calorias sejam menores do que 200.
+
+           "Cuidado, vai ficar mais "fofinho(a)" após quarentena!", caso as calorias sejam entre 200 e 400.
+
+           "Bom, acho que muitos não vão te reconhecer após a quarentena", caso as calorias sejam mais de 400.
      -->
+
     <div class="atividade">
         <div class="desenvolvimento">
             <div class="titulo">
-                <h2>Qual é o melhor esporte?</h2>
+                <h2> Pandemia Sem Engordar!   </h2>
             </div>
             <div class="ativ2">
-                <p>Informe sua altura: </p><br><input type="number" id="in_altura" onkeyup="mostrar()">
+                <p>Quantos pães franceses você come por dia?</p><input type="number" id="in_paes">
+                <p>Quantos pacotes de bolhacha recheada você come por dia?</p><input type="number" id="in_bolachas">
+                <p>Quantos copos de achocolatado você têm bebido por dia?</p><input type="number" id="in_copo">
+                <button onclick="mostrar()">
+                    Verificar calorias
+                </button>
             </div>
         </div>
         <div class="resposta" id="resultado"></div>
     </div>
-
 </body>
 
 </html>
 <script>
     function mostrar() {
-        var altura = Number(in_altura.value)
+        // d) Ao clicar em "Verificar calorias", calcule quantas calorias o usuário tem consumido com base nas 3 informações. Considere que um pão francês tem 50 calorias, um pacote de bolacha, 80 e um copo de achocolatado, 70.
 
-        if (altura < 1.65) {
-            resultado.innerHTML = `<p>Você pode ser piloto de corrida</p>`
-        } else if (altura < 1.8) {
-            resultado.innerHTML = `<p>Você pode ser jogador de futebol</p>`
+        // e) Após fazer o cálculo, exiba uma dessas frases, abaixo do botão:
+
+        //    "Parabéns, vai sair em forma da quarentena!", caso as calorias sejam menores do que 200.
+
+        //    "Cuidado, vai ficar mais "fofinho(a)" após quarentena!", caso as calorias sejam entre 200 e 400.
+
+        //    "Bom, acho que muitos não vão te reconhecer após a quarentena", caso as calorias sejam mais de 400.
+
+
+        var pao = Number(in_paes.value) * 50
+        var bol = Number(in_bolachas.value) * 80
+        var copo = Number(in_copo.value) * 70
+
+        var cal = pao + bol + copo
+
+        if (cal < 200) {
+            resultado.innerHTML = `<p>Parabéns, vai sair em forma da quarentena!</p>`
+        } else if (cal < 401) {
+            resultado.innerHTML = `<p>Cuidado, vai ficar mais "fofinho(a)" após quarentena!</p>`
         } else {
-            resultado.innerHTML = `<p>Você pode ser jogador de vôlei ou basquete</p>`
+            resultado.innerHTML = `<p>Bom, acho que muitos não vão te reconhecer após a quarentena</p>`
         }
     }
 </script>

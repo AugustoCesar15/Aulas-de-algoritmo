@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 1</title>
+    <title>Atividade 13</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
@@ -134,22 +134,24 @@
 
     .atividade .desenvolvimento .titulo {
         width: 100%;
-        /* height: 80px; */
+        display: flex;
+        align-items: center;
+        /* border: 1px red solid; */
     }
 
     .atividade .desenvolvimento h2 {
         color: aliceblue;
         font-size: 2em;
-        /* margin-bottom: 20px; */
     }
 
     .atividade .desenvolvimento .ativ2 {
         width: 100%;
-        height: 200px;
+        height: 400px;
         display: flex;
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
+        margin-top: 50px;
         /* border: 1px rgb(252, 233, 242) solid; */
     }
 
@@ -166,10 +168,32 @@
         text-align: center;
         border: 0 solid;
         border-radius: 10px;
+        margin: 5px 0 20px;
+    }
+
+    .atividade .desenvolvimento .ativ2 button {
+        width: 45%;
+        height: 45px;
+        border: 0 solid;
+        border-radius: 10px;
+        background-color: rgb(211, 17, 113);
+        color: whitesmoke;
+        font-family: 'Ubuntu';
+        transition: all 1s;
+        outline: 0;
+        margin-bottom: 20px;
+    }
+
+    .atividade .desenvolvimento .ativ2 button:hover {
+        border: 2px rgb(211, 17, 113) solid;
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(211, 17, 113);
+        font-weight: 600;
+        outline: 0;
     }
 
     .atividade .resposta {
-        width: 35%;
+        width: 15%;
         height: 300px;
         display: flex;
         justify-content: start;
@@ -195,7 +219,7 @@
         </div>
         <div class="bar">
             <ul>
-                <li class="aqui"><a href="./atividade1.html">1</a></li>
+                <li><a href="./atividade1.html">1</a></li>
                 <li><a href="./atividade2.html">2</a></li>
                 <li><a href="./atividade3.html">3</a></li>
                 <li><a href="./atividade4.html">4</a></li>
@@ -207,7 +231,7 @@
                 <li><a href="./atividade10.html">10</a></li>
                 <li><a href="./atividade11.html">11</a></li>
                 <li><a href="./atividade12.html">12</a></li>
-                <li><a href="./atividade13.html">13</a></li>
+                <li class="aqui"><a href="./atividade13.html">13</a></li>
                 <li><a href="./atividade14.html">14</a></li>
             </ul>
         </div>
@@ -215,44 +239,80 @@
 
     <!-- Atividade -->
     <!-- 
-        1. Crie um programa no qual um profissional de educação física possa determinar de 
-        forma mais rápida quais esportes uma pessoa tem uma boa altura para praticar.
+        13. Crie um programa o qual:
 
-        a) Solicite sua altura
+        a) Tenha o seguinte texto no topo: "Valor guardado: R$0.00"
 
-        b) Conforme vai digitando, deve aparecer abaixo uma dessas frases:
+        b) Tenha os botões "Guardar R$5,00" e "Gastar R$10,00". Ao clicar neles, o valor guardado aumenta ou diminui conforme o texto do botão indica
 
-            "Você pode ser piloto de corrida" (altura até 1.65)
+        c) Quando o valor guardado estiver em 0 ou mais, exiba abaixo da frase de a) a frase, na cor azul, "Finanças OK"!
 
-            "Você pode ser jogador de futebol" (altura +1.65 até 1.80)
+        d) Caso o valor guardado passe de 100, exiba abaixo da frase de c) a frase "#ostentação"
 
-            "Você pode ser jogador de vôlei ou basquete" (altura + 1.80)
-     -->
+        e) Quando o valor guardado for menor que 0, exiba abaixo da frase de a) a frase, na cor vermelha, "Finanças em perigo"!
+
+        f) Caso o valor guardado seja menor que -20, exiba abaixo da frase de e) a frase "Seu nome vai ficar sujo, hein?"
+    -->
+
     <div class="atividade">
         <div class="desenvolvimento">
             <div class="titulo">
-                <h2>Qual é o melhor esporte?</h2>
+                <h2> Simulador de conta </h2>
             </div>
-            <div class="ativ2">
-                <p>Informe sua altura: </p><br><input type="number" id="in_altura" onkeyup="mostrar()">
+            <div class="ativ2" id="outro">
+                <button onclick="guardar()">Guardar R$5,00</button>
+                <button onclick="gastar()">Gastar R$10,00</button>
             </div>
         </div>
         <div class="resposta" id="resultado"></div>
+        <div id="teste"></div> 
     </div>
-
 </body>
 
 </html>
 <script>
-    function mostrar() {
-        var altura = Number(in_altura.value)
+    var valor = 0
+    var OK = `<p style="color: #1919fe" margin-left: 20px;>Finanças OK</p>`
 
-        if (altura < 1.65) {
-            resultado.innerHTML = `<p>Você pode ser piloto de corrida</p>`
-        } else if (altura < 1.8) {
-            resultado.innerHTML = `<p>Você pode ser jogador de futebol</p>`
+    resultado.innerHTML = `<p>Valor guardado: R$${(valor).toFixed(2)}</p>`
+    teste.innerHTML = `${OK}`
+
+    function guardar() {
+        valor = valor + 5
+
+        resultado.innerHTML = `<p>Valor guardado: R$${(valor).toFixed(2)}</p>`
+
+
+        if (valor >= 0 & valor < 100) {
+            OK = `<p style="color: #1919fe" margin-left: 20px;>Finanças OK</p>`
+            teste.innerHTML = `${OK}`
+        } else if (valor >= 100) {
+            OK = `<p style="color: #1919fe">Finanças OK <br> #ostentação</p>`
+            teste.innerHTML = `${OK}`
+        } else if (valor < -20){
+            OK = `<p style="color: #fe1919">Finanças em perigo!<br>Seu nome vai ficar sujo, hein? </p>`
+            teste.innerHTML = `${OK}`
         } else {
-            resultado.innerHTML = `<p>Você pode ser jogador de vôlei ou basquete</p>`
+            OK = `<p style="color: #fe1919">Finanças em perigo!</p>`
+            teste.innerHTML = `${OK}`
+        } 
+    }
+    function gastar() {
+        valor = valor - 10
+        resultado.innerHTML = `<p>Valor guardado: R$${(valor).toFixed(2)}</p>`
+
+        if (valor >= 0 & valor < 100) {
+            OK = `<p style="color: #1919fe" margin-left: 20px;>Finanças OK</p>`
+            teste.innerHTML = `${OK}`
+        } else if (valor >= 100) {
+            OK = `<p style="color: #1919fe">Finanças OK <br> #ostentação</p>`
+            teste.innerHTML = `${OK}`
+        } else if (valor < -20){
+            OK = `<p style="color: #fe1919">Finanças em perigo!<br> Seu nome vai ficar sujo, hein? </p>`
+            teste.innerHTML = `${OK}`
+        } else {
+            OK = `<p style="color: #fe1919">Finanças em perigo!</p>`
+            teste.innerHTML = `${OK}`
         }
     }
 </script>

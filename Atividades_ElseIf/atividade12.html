@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 1</title>
+    <title>Atividade 12</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
@@ -21,10 +21,7 @@
         background-image: linear-gradient(140deg, rgb(211, 17, 113), rgb(72, 14, 76));
     }
 
-    p,
-    a,
-    h2,
-    h3 {
+    p, a, h2,h3 {
         font-family: 'Ubuntu';
     }
 
@@ -134,22 +131,24 @@
 
     .atividade .desenvolvimento .titulo {
         width: 100%;
-        /* height: 80px; */
+        display: flex;
+        align-items: center;
+        /* border: 1px red solid; */
     }
 
     .atividade .desenvolvimento h2 {
         color: aliceblue;
         font-size: 2em;
-        /* margin-bottom: 20px; */
     }
 
     .atividade .desenvolvimento .ativ2 {
         width: 100%;
-        height: 200px;
+        height: 400px;
         display: flex;
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
+        margin-top: 50px;
         /* border: 1px rgb(252, 233, 242) solid; */
     }
 
@@ -166,8 +165,27 @@
         text-align: center;
         border: 0 solid;
         border-radius: 10px;
+        margin: 5px 0 20px;
     }
-
+    .atividade .desenvolvimento .ativ2 button{
+        width: 45%;
+        height: 45px;
+        border: 0 solid;
+        border-radius: 10px;
+        background-color: rgb(211, 17, 113);
+        color: whitesmoke;
+        font-family: 'Ubuntu';
+        transition: all 1s;
+        outline: 0;
+        margin-bottom: 20px;
+    }
+    .atividade .desenvolvimento .ativ2 button:hover{
+        border: 2px rgb(211, 17, 113) solid;
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(211, 17, 113);
+        font-weight: 600;
+        outline: 0;
+    }
     .atividade .resposta {
         width: 35%;
         height: 300px;
@@ -195,7 +213,7 @@
         </div>
         <div class="bar">
             <ul>
-                <li class="aqui"><a href="./atividade1.html">1</a></li>
+                <li><a href="./atividade1.html">1</a></li>
                 <li><a href="./atividade2.html">2</a></li>
                 <li><a href="./atividade3.html">3</a></li>
                 <li><a href="./atividade4.html">4</a></li>
@@ -206,7 +224,7 @@
                 <li><a href="./atividade9.html">9</a></li>
                 <li><a href="./atividade10.html">10</a></li>
                 <li><a href="./atividade11.html">11</a></li>
-                <li><a href="./atividade12.html">12</a></li>
+                <li class="aqui"><a href="./atividade12.html">12</a></li>
                 <li><a href="./atividade13.html">13</a></li>
                 <li><a href="./atividade14.html">14</a></li>
             </ul>
@@ -215,44 +233,58 @@
 
     <!-- Atividade -->
     <!-- 
-        1. Crie um programa no qual um profissional de educação física possa determinar de 
-        forma mais rápida quais esportes uma pessoa tem uma boa altura para praticar.
+        12. Crie um botão para avaliar o quão habilidoso o usuário é nos cliques.
 
-        a) Solicite sua altura
+        a) A tela deve ter o texto "Você já clicou 0 vezes"
 
-        b) Conforme vai digitando, deve aparecer abaixo uma dessas frases:
+        b) Ao clicar em "Clica neu", o contador do texto em a) aumenta. De 0 vai pra 1, depois pra 2, depois pra 3 e assim por diante
 
-            "Você pode ser piloto de corrida" (altura até 1.65)
+        c) Além de atualizar o contador, exiba umas dessas frases abaixo da frase em a)
 
-            "Você pode ser jogador de futebol" (altura +1.65 até 1.80)
+            "Dedo fraquinho, hein", se clicou menos de 5 vezes
 
-            "Você pode ser jogador de vôlei ou basquete" (altura + 1.80)
+            "Dedo bom, mano" se clicou entre 5 e 10 vezes
+
+            "Gosta de clicar, hein!", se clicou entre 11 e 15 vezes
+
+            "Eita dedo nervoso!", se clicou mais de 15 vezes
      -->
+
     <div class="atividade">
         <div class="desenvolvimento">
             <div class="titulo">
-                <h2>Qual é o melhor esporte?</h2>
+                <h2> Contador de cliques </h2>
             </div>
             <div class="ativ2">
-                <p>Informe sua altura: </p><br><input type="number" id="in_altura" onkeyup="mostrar()">
+                <button onclick="clicada()">Clica neu</button>
+                <button onclick="teste()">Zerar contador</button>
             </div>
+            
         </div>
         <div class="resposta" id="resultado"></div>
     </div>
-
 </body>
 
 </html>
 <script>
-    function mostrar() {
-        var altura = Number(in_altura.value)
+    var clique = 0
+    function clicada() {
+        
+        resultado.innerHTML = `<p>${++clique}</p>`
 
-        if (altura < 1.65) {
-            resultado.innerHTML = `<p>Você pode ser piloto de corrida</p>`
-        } else if (altura < 1.8) {
-            resultado.innerHTML = `<p>Você pode ser jogador de futebol</p>`
+        if (clique < 5) {
+        resultado.innerHTML = `<p>${clique} <br> Dedo Fraquinho, hein</p>`
+        } else if (clique <= 10) {
+        resultado.innerHTML = `<p>${clique} <br> Dedo bom, mano</p>`
+        } else if (clique <= 15) {
+        resultado.innerHTML = `<p> ${clique} <br> Gosta de clicar, hein!</p>`
         } else {
-            resultado.innerHTML = `<p>Você pode ser jogador de vôlei ou basquete</p>`
+            resultado.innerHTML = `<p>${clique} <br> Eita dedo nervoso!</p>`
         }
     }
+    function teste() {
+        clique = 0
+        resultado.innerHTML = `<p>${clique}</p>`
+    }
+    
 </script>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 1</title>
+    <title>Atividade 3</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
@@ -21,10 +21,7 @@
         background-image: linear-gradient(140deg, rgb(211, 17, 113), rgb(72, 14, 76));
     }
 
-    p,
-    a,
-    h2,
-    h3 {
+    p, a, h2,h3 {
         font-family: 'Ubuntu';
     }
 
@@ -134,7 +131,9 @@
 
     .atividade .desenvolvimento .titulo {
         width: 100%;
-        /* height: 80px; */
+        display: flex;
+        align-items: center;
+        /* border: 1px red solid; */
     }
 
     .atividade .desenvolvimento h2 {
@@ -166,8 +165,26 @@
         text-align: center;
         border: 0 solid;
         border-radius: 10px;
+        margin: 20px 0;
     }
-
+    .atividade .desenvolvimento .ativ2 button{
+        width: 45%;
+        height: 45px;
+        border: 0 solid;
+        border-radius: 10px;
+        background-color: rgb(211, 17, 113);
+        color: whitesmoke;
+        font-family: 'Ubuntu';
+        transition: all 1s;
+        outline: 0;
+    }
+    .atividade .desenvolvimento .ativ2 button:hover{
+        border: 2px rgb(211, 17, 113) solid;
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(211, 17, 113);
+        font-weight: 600;
+        outline: 0;
+    }
     .atividade .resposta {
         width: 35%;
         height: 300px;
@@ -195,9 +212,9 @@
         </div>
         <div class="bar">
             <ul>
-                <li class="aqui"><a href="./atividade1.html">1</a></li>
+                <li><a href="./atividade1.html">1</a></li>
                 <li><a href="./atividade2.html">2</a></li>
-                <li><a href="./atividade3.html">3</a></li>
+                <li class="aqui"><a href="./atividade3.html">3</a></li>
                 <li><a href="./atividade4.html">4</a></li>
                 <li><a href="./atividade5.html">5</a></li>
                 <li><a href="./atividade6.html">6</a></li>
@@ -215,44 +232,49 @@
 
     <!-- Atividade -->
     <!-- 
-        1. Crie um programa no qual um profissional de educação física possa determinar de 
-        forma mais rápida quais esportes uma pessoa tem uma boa altura para praticar.
+        3. Para o ser humano, a temperatura é...
 
-        a) Solicite sua altura
+        Congelante (até menos de 14ºC)
 
-        b) Conforme vai digitando, deve aparecer abaixo uma dessas frases:
+        Com Frio (entre 14ºC e 21ºC)
 
-            "Você pode ser piloto de corrida" (altura até 1.65)
+        Confortável (mais de 21ºC até 24ºC)
 
-            "Você pode ser jogador de futebol" (altura +1.65 até 1.80)
+        Com Calor (mais de 24ºC até 31ºC)
 
-            "Você pode ser jogador de vôlei ou basquete" (altura + 1.80)
+        Calor escaldante (mais de 31ºC)
+
+        Crie um programa que, ao ler uma temperatura, exiba uma dessas situações de temperatura.
      -->
+
     <div class="atividade">
         <div class="desenvolvimento">
             <div class="titulo">
-                <h2>Qual é o melhor esporte?</h2>
+                <h2>Situação da temperatura</h2>
             </div>
             <div class="ativ2">
-                <p>Informe sua altura: </p><br><input type="number" id="in_altura" onkeyup="mostrar()">
+                <p>Informe uma temperatura</p><input type="text" id="in_temp" onkeyup="mostrar()">
             </div>
         </div>
         <div class="resposta" id="resultado"></div>
     </div>
-
 </body>
 
 </html>
 <script>
     function mostrar() {
-        var altura = Number(in_altura.value)
+        var temp = Number(in_temp.value)
 
-        if (altura < 1.65) {
-            resultado.innerHTML = `<p>Você pode ser piloto de corrida</p>`
-        } else if (altura < 1.8) {
-            resultado.innerHTML = `<p>Você pode ser jogador de futebol</p>`
+        if (temp < 14) {
+            resultado.innerHTML = `<p>Congelante</p>`
+        } else if (temp < 22){
+            resultado.innerHTML = `<p>Com Frio</p>`
+        } else if (temp < 25) {
+            resultado.innerHTML = `<p>Confortável</p>`
+        } else if (temp < 32) {
+            resultado.innerHTML = `<p>Com calor</p>`
         } else {
-            resultado.innerHTML = `<p>Você pode ser jogador de vôlei ou basquete</p>`
+            resultado.innerHTML = `<p>Calor Escaldante</p>`
         }
     }
 </script>
