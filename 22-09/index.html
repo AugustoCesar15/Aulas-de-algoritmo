@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia 22/09</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body id="body">
+    <nav id="nav">
+        <div class="logo">
+            <h1 id="augusto">Augusto</h1>
+        </div>
+        <div class="bar">
+            <ul>
+                <li><a id="a" href="">Atv 1</a></li>
+                <li><a id="b" href="">Atv 2</a></li>
+                <li><a id="c" href="">Atv 3</a></li>
+                <li><a id="d" href="">Atv 4</a></li>
+                <!-- <li class="espe">
+                    <select id="sel_outras">
+                        <option value=""><a href=""></a></option>
+                        <option value="1"><a href="">Atv 5</a></option>
+                        <option value="2"><a href="">Atv 6</a></option>
+                        <option value="3"><a href="">Atv 7</a></option>
+                        <option value="4"><a href="">Atv 8</a></option>
+                    </select>
+                </li> -->
+            </ul>
+        </div>
+        <div class="temazin">
+            <button onclick="mudar()" id="teste">
+                Dark Theme
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="atividade">
+            <!-- 
+                1. Crie um programa o qual:
+
+                    a) Pergunte a temperatura atual
+
+                    b) Ao clicar em "Ver situação"...
+
+                    c) Caso a temperatura seja entre 21 e 24, exibir um alert com a frase "Temperatura confortável sorriso"
+
+                    d) Caso a temperatura não estiver no intervalo definido em c), exibir um alert com a frase "Temperatura DESCONFORTÁVEL triste
+             -->
+            <div class="titulo">
+                <h2>Situação da temperatura</h2>
+            </div>
+            <div class="exer">
+                <p>Informe a temperatura autal: </p><input type="number" id="in_temp">
+
+            </div>
+            <div class="botao">
+                <button>Ver situação</button>
+            </div>
+        </div>
+        <div id="resultado" class="resposta"></div>
+    </div>
+</body>
+
+</html>
+<script src="./js/index.js">
+</script>
