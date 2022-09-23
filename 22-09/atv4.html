@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body id="body">
+    <nav id="nav">
+        <div class="logo">
+            <h1 id="augusto">Augusto</h1>
+        </div>
+        <div class="bar">
+            <ul>
+                <li><a id="a" href="./index.html">1</a></li>
+                <li><a id="b" href="./atv2.html">2</a></li>
+                <li><a id="c" href="./atv3.html">3</a></li>
+                <li><a id="d" href="./atv4.html">4</a></li>
+                <li><a id="e" href="./atv5.html">5</a></li>
+                <li><a id="f" href="./atv6.html">6</a></li>
+                <li><a id="g" href="./atv7.html">7</a></li>
+                <li><a id="h" href="./atv8.html">8</a></li>
+                <li><a id="i" href="./atv9.html">9</a></li>
+                <li><a id="j" href="./atv10.html">10</a></li>
+                <li><a id="k" href="./atv11.html">11</a></li>
+                <li><a id="l" href="./atv12.html">12</a></li>
+                <li><a id="m" href="./atv13.html">13</a></li>
+                <li><a id="n" href="./atv14.html">14</a></li>
+                <li><a id="n" href="./teste.html">14</a></li>
+            </ul>
+        </div>
+        <div class="temazin">
+            <button onclick="mudar()" id="teste">
+                Dark Theme
+            </button>
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <div class="atividade" id="ativi">
+            <!-- 
+                4. Crie um programa que verifique se o usuário é vegano ou não.
+
+                    a) Numa combo pergunte o que ele come no café da manhã, tendo as opções
+                        ovos
+                        leite de arroz
+                        bacon
+
+                    b) Numa outra combo pergunte o que ele come no almoço, tendo as opções
+                        bife
+                        hamburger de soja
+                        frango grelhado
+
+                    c) Numa outra combo pergunte o que ele come na janta, tendo as opções
+
+                        picanha de soja
+                        cupim
+                        coração
+
+                    d) Ao clicar no botão "Sou vegano", aparece um alert com uma dessas frases:
+                        "Sim, você é vegano!", caso ele consuma leite de arroz no café, hamburger de soja no almoço e picanha de soja na janta
+
+                        "Não, você não é vegano", caso contrário
+             -->
+            <div class="titulo">
+                <h2 id="tituloCaixa">Teste de vegano</h2>
+            </div>
+            <div class="exer">
+                <p id="textoCaixa">O que costuma comer de café da manhã</p>
+                <select id="select1">
+                    <option value="1">Ovos</option>
+                    <option value="1">Leite de Arroz</option>
+                    <option value="1">Bacon</option>
+                </select>
+                <p id="textoCaix">Agora o almoço: </p>
+                <select id="select2">
+                    <option value="1">Bife</option>
+                    <option value="2">hamburger de soja</option>
+                    <option value="3">Frango grelhado</option>
+                </select>
+
+            </div>
+            <div class="botao">
+                <button onclick="mostrar()">Verificar ajuda!</button>
+            </div>
+        </div>
+        <div id="resultado" class="resposta"></div>
+    </div>
+</body>
+
+</html>
+<script src="./js/index.js">
+</script>
+<script>
+
+    function mostrar() {
+        // "Você terá direito!", caso a renda do usuário for até 1050 e a renda familiar for até 2100.
+        // "Você NÃO terá direito", caso contrário
+
+        var rendaU = Number(in_rendaU.value)
+        var rendaF = Number(in_rendaF.value)
+
+        if (rendaU <= 1050 && rendaF <= 2100) {
+            alert("Você terá direito!")
+        } else {
+            alert("Você NÃO terá direito!")
+        }
+    }
+</script>

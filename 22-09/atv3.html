@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 3</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body id="body">
+    <nav id="nav">
+        <div class="logo">
+            <h1 id="augusto">Augusto</h1>
+        </div>
+        <div class="bar">
+            <ul>
+                <li><a id="a" href="./index.html">1</a></li>
+                <li><a id="b" href="./atv2.html">2</a></li>
+                <li><a id="c" href="./atv3.html">3</a></li>
+                <li><a id="d" href="./atv4.html">4</a></li>
+                <li><a id="e" href="./atv5.html">5</a></li>
+                <li><a id="f" href="./atv6.html">6</a></li>
+                <li><a id="g" href="./atv7.html">7</a></li>
+                <li><a id="h" href="./atv8.html">8</a></li>
+                <li><a id="i" href="./atv9.html">9</a></li>
+                <li><a id="j" href="./atv10.html">10</a></li>
+                <li><a id="k" href="./atv11.html">11</a></li>
+                <li><a id="l" href="./atv12.html">12</a></li>
+                <li><a id="m" href="./atv13.html">13</a></li>
+                <li><a id="n" href="./atv14.html">14</a></li>
+            </ul>
+        </div>
+        <div class="temazin">
+            <button onclick="mudar()" id="teste">
+                Dark Theme
+            </button>
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <div class="atividade" id="ativi">
+            <!-- 
+                3. Crie um programa o qual:
+
+                a) Pergunte uma nota de um aluno
+
+                b) Ao clicar em "Avaliar aluno"...
+
+                c) Caso a nota for entre 0 e 10, exibir um alert com a frase "Nota válida!"
+
+                d) Caso a nota não estiver no intervalo definido em c), exibir um alert com a frase "Onde já se viu nota menor que 0 e maior que 10?!"
+             -->
+            <div class="titulo">
+                <h2 id="tituloCaixa">Auxílio governo</h2>
+            </div>
+            <div class="exer">
+                <p id="textoCaixa">Informe sua nota: </p><input type="number" id="input1">
+            </div>
+            <div class="botao">
+                <button onclick="mostrar()">Avaliar aluno</button>
+            </div>
+        </div>
+        <div id="resultado" class="resposta"></div>
+    </div>
+</body>
+
+</html>
+<script src="./index.js">
+</script>
+<script>
+
+    function mostrar() {
+        
+        var nota = Number(input1.value)
+
+        if (nota >= 0 && nota <= 10) {
+            alert('Nota válida!')
+        } else {
+            alert('Onde já se viu nota menor que 0 e maior que 10?!')
+        }
+    }
+</script>
