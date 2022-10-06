@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Augusto Lindo</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <a href="./index.html">Home (Voltar)</a>
+    <div class="body">
+        <div id="resultado" class="resposta"></div>
+
+        <div class="conjunto">
+            <!-- 1 -->
+            <div class="atv">
+
+                <!-- 1. Crie um programa o qual:
+
+                a) Ao clicar num botão "Contar"...
+
+                b) Exiba, debaixo do botão, os números de 1 a 15, um embaixo do outro 
+        -->
+                <h2>Atividade 1</h2>
+                <button onclick="respetir()">Contar</button>
+            </div>
+
+            <!-- 2 -->
+            <div class="atv">
+                <!-- 
+            2. Crie um programa o qual:
+
+        a) Tenha um botão "Diga algo sobre a pandemia de Covid19"
+
+        b) Ao clicar nele, mostre na própria página 7 vezes uma frase a sua escolha, uma abaixo da outra
+         -->
+                <h2>Atividade 2</h2>
+                <button onclick="covid()">Covid-19</button>
+            </div>
+
+            <!-- 3 -->
+            <div class="atv">
+                <!-- 
+            3. Refaça o programa anterior de tal forma que, antes de cada frase apareça um contador. Ex: Se a frase digitada foi “Boa Tarde” a página ficará assim:
+               1. Boa tarde
+               2. Boa tarde
+               ...
+               7. Boa tarde
+         -->
+                <h2>Atividade 3</h2>
+                <button onclick="covid2()">Covid-19 2.0</button>
+            </div>
+
+            <!-- 4 -->
+            <div class="atv">
+                <!-- 
+            4. Crie um programa o qual:
+
+                a) Ao clicar num botão "S2 Pares"...
+
+                b) Exiba, debaixo do botão, todos os números pares de 0 a 100, um embaixo do outro
+         -->
+                <h2>Atividade 4</h2>
+                <button onclick="par()">S2 Pares</button>
+            </div>
+
+            <!-- 5 -->
+            <div class="atv">
+                <!-- 
+                5. Crie um programa o qual:
+
+                    a) Ao clicar num botão "Números cabalísticos"...
+
+                    c) Exiba, debaixo do botão, os números de 1 a 30, um embaixo do outro, PORÉM, não devem aparecer os números cabalísticos 3, 4, 7, 10 e 12.
+             -->
+
+                <h2>Atividade 5</h2>
+                <button onclick="atv5()">Números cabalísticos</button>
+            </div>
+
+            <!-- 6 -->
+            <div class="atv">
+                <!-- 
+                    6. Crie um programa o qual:
+                    
+                    a) Pergunte o nome da pessoa que o usuário mais ama na vida
+                    
+                    b) Pergunte o quanto o usuário a ama (um número inteiro)
+                    
+                    c) Ao clicar num botão "Expressar amor", devem aparecer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3")
+                    
+                     1 - Lady Gaga, eu te amo! Sempre lembre disso!
+                    
+                     2 - Lady Gaga, eu te amo! Sempre lembre disso!
+                    
+                     3 - Lady Gaga, eu te amo! Sempre lembre disso!
+                -->
+                <h2>Atividade 6</h2>
+                <p>Quem você mais ama?</p><input type="text" id="amada">
+                <p>De 0 a 10, quanto você ama?</p><input type="number" id="quanto">
+
+                <button onclick="atv6()">Expressar Amor</button>
+            </div>
+        </div>
+
+        <div class="conjunto">
+            <!-- 7 -->
+            <div class="atv"></div>
+
+            <!-- 8 -->
+            <div class="atv"></div>
+
+            <!-- 9 -->
+            <div class="atv"></div>
+
+            <!-- 10 -->
+            <div class="atv"></div>
+
+            <!-- 11 -->
+            <div class="atv"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // Atv 1
+    function respetir() {
+        document.getElementById("resultado").style.display = "flex"
+
+        var contador = 1
+
+        resultado.innerHTML = ""
+
+        while (contador < 16) {
+            resultado.innerHTML += `<P>${contador} </p>`
+            contador++
+        }
+    }
+
+    // Atv 2
+    function covid() {
+        document.getElementById("resultado").style.display = "flex"
+
+        var num = 1
+        var covid = "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+
+        resultado.innerHTML = ""
+
+        while (num < 8) {
+            resultado.innerHTML += `<p>${covid} <br></p>`
+            num++
+        }
+    }
+
+    // Atv 3
+    function covid2() {
+        document.getElementById("resultado").style.display = "flex"
+
+        var num = 1
+        var covid = "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+
+        resultado.innerHTML = ""
+
+        while (num < 8) {
+            resultado.innerHTML += `<P>${num} - ${covid} <br></p>`
+            num++
+        }
+    }
+
+    // Atv 4
+    function par() {
+        document.getElementById("resultado").style.display = "flex"
+
+        var num = 0
+
+        resultado.innerHTML = ""
+
+        while (num <= 100) {
+            resultado.innerHTML += `<p>${num} - <p>`
+
+            num++
+            num++
+        }
+
+    }
+
+    // Atv 5
+    function atv5() {
+        document.getElementById("resultado").style.display = "flex"
+
+        var num = 1
+
+        while (num <= 30) {
+            var cabalistico = num == 3 || num == 4 || num == 7 || num == 10 || num == 12
+
+            if (!cabalistico) {
+                resultado.innerHTML += `${num} <br>`
+            }
+            num++
+        }
+    }
+
+    // Atv 6
+    function atv6() {
+        document.getElementById("resultado").style.display = "flex"
+
+        var pessoa = amada.value
+        var quantidade = quanto.value
+
+        var Seisnum = 1
+
+        while (Seisnum <= quantidade) {
+            resultado.innerHTML += `<span>${pessoa} eu te amo, Sempre lembre disso!</span><br>`
+            Seisnum++
+        }
+    }
+</script>
