@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Augusto Lindo</title>
+    <title>Atividades de while</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <a href="./index.html">Home (Voltar)</a>
     <div class="body">
-        <div id="resultado" class="resposta"></div>
+        <div id="resultado" class="resposta"> <img src="" id="img_id"></div>
 
+        <!-- da 1 à 5 -->
         <div class="conjunto">
             <!-- 1 -->
             <div class="atv">
@@ -75,12 +76,26 @@
                     a) Ao clicar num botão "Números cabalísticos"...
 
                     c) Exiba, debaixo do botão, os números de 1 a 30, um embaixo do outro, PORÉM, não devem aparecer os números cabalísticos 3, 4, 7, 10 e 12.
-             -->
+                -->
 
                 <h2>Atividade 5</h2>
                 <button onclick="atv5()">Números cabalísticos</button>
             </div>
+        </div>
 
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Da 6 à 10 -->
+        <div class="conjunto">
             <!-- 6 -->
             <div class="atv">
                 <!-- 
@@ -90,7 +105,7 @@
                     
                     b) Pergunte o quanto o usuário a ama (um número inteiro)
                     
-                    c) Ao clicar num botão "Expressar amor", devem aparecer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3")
+        c) Ao clicar num botão "Expressar amor", devem aparecer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3")
                     
                      1 - Lady Gaga, eu te amo! Sempre lembre disso!
                     
@@ -104,23 +119,210 @@
 
                 <button onclick="atv6()">Expressar Amor</button>
             </div>
-        </div>
 
-        <div class="conjunto">
+
+
             <!-- 7 -->
-            <div class="atv"></div>
+            <div class="atv">
+                <!-- 
+                    7. Crie um programa o qual:
+
+                        a) Receba do usuário um número (tem que ser entre 20 e 100)
+
+                        b) Ao clicar num botão "Adoro múltiplos de 5"...
+
+                        b) Exiba, debaixo do botão, todos os múltiplos de 5 entre de 0 e o número informado em a), um embaixo do outro. Ex: 5, 10, 15, 20...
+                 -->
+
+                <h2>Atividade 7</h2>
+                <p>Informe um número entre 20 e 100</p><input type="number" id="in_numAtv7">
+
+                <button onclick="atv7()">Adoro multiplos</button>
+
+
+            </div>
+
 
             <!-- 8 -->
-            <div class="atv"></div>
+            <div class="atv">
+
+                <!-- 
+                    8. Crie um programa o qual:
+                    
+            a) Receber um número (tem que estar entre 0 e 200)
+            
+                b) Ter um botão chamado "Viva o 7!"
+
+                        c) Ao clicar nesse botão, devem aparecer todos os múltiplos de 7 entre 0 e o número informado em a)
+
+                        c) ATENÇÃO! Use a técnica de dedução de múltiplos por uso do resto da divisão e não usando a técnica de incrementar em 7. Para saber se um número é múltiplo de 7, basta descobrir se o resto da divisão dele por 7 é 0.  
+                 -->
+                <h2>Atividade 8</h2>
+                <p>Informe um número entre 0 e 200</p> <input type="number" id="in_atv8">
+                <button onclick="atv8()">Viva o 7!!!!!</button>
+
+            </div>
 
             <!-- 9 -->
-            <div class="atv"></div>
+            <div class="atv">
+                <!-- 
+                9. Crie um programa o qual:
+                
+            a) Pergunte ao usuário um número
+
+                    b) Pergunte ao usuário uma frase
+
+                    c) Ao clicar num botão "Papagaio", a frase é exibida N vezes em N alerts, onde N é o número informado em a)
+                -->
+
+                <h2>Atividade 9</h2>
+                <p>Informe um número</p><input type="number" id="in_num9">
+                <p>Informe uma frase</p><input type="text" id="in_frase9">
+                <button onclick="atv9()">Papagaio</button>
+
+            </div>
 
             <!-- 10 -->
-            <div class="atv"></div>
+            <div class="atv">
+                <!-- 
+                    10.  Crie um programa o qual:
 
+                    Solicite um intervalo crescente de valores numéricos  
+                    
+                    Ao clicar num botão "S2 Pares"...
+                    
+                    Exiba, debaixo do botão, todos os números pares contidos no intervalor
+                -->
+                <h2>Atividade 10</h2>
+
+                <p>Informe um intervalo de números</p>
+                <input type="number" id="in_num10">
+
+                <button onclick="atv10()">S2 Pares</button>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- Da 11 à 15 -->
+        <div class="conjunto">
             <!-- 11 -->
-            <div class="atv"></div>
+            <div class="atv">
+
+                <h2>Atividade 11</h2>
+                <!-- 
+                    11. Crie um programa o qual:
+                    
+                    a) Solicite ao usuário a quantidade de títulos mundiais da FIFA que seu clube tem
+                    
+                    b) Ao clicar num botão "Ver troféus de mundiais FIFA"...
+                    
+                    c) Devem aparecer, abaixo do botão, N imagens de um troféu, onde N é o valor informado em a). Porém...
+                    
+                    d) Caso o valor informado em a) seja 0 ou menos, a imagem que deve aparecer apenas uma vez abaixo do botão é de um torcedor do time chorando
+                -->
+                <p>Quantos titulos mundias seu time possui?</p><input type="number" id="in_trofeus11">
+                <button onclick="atv11()">Ver troféus de mundiais FIFA</button>
+            </div>
+            <!-- 12 -->
+            <div class="atv">
+
+                <!-- 
+                    12. Crie um programa o qual:
+
+                        a) Pergunte ao usuário quantas voltas um carro dará numa corrida
+
+                        b) Ao clicar num botão "Iniciar corrida!"...
+
+                        c) Exiba, debaixo do botão, frases como estas:
+
+                        Carro dando a 1ª volta
+                        
+                        Carro dando a 2ª volta
+
+                        Carro dando a 3ª volta
+
+                        d) Até que o carro "termine" a corrida. Nesse caso, exiba abaixo de tudo, somente 1 vez, a frase   Corrida finalizada!
+                -->
+                <h2>Atividade 12</h2>
+                <p>Informe quantas voltas dará o carro na corrida</p>
+                <input type="number" id="in_voltas12">
+
+                <button onclick="atv12()">Iniciar Corrida!!</button>
+            </div>
+
+            <!-- 13 -->
+            <div class="atv">
+                <!-- 
+                    13. Crie um programa o qual:
+
+                        a) Pergunte, numa combo, qual a tabuada que o usuário quer ver na tela (2 a 9)
+
+                        b) Pergunte até que número a tabuada deve ser construída
+
+                        c) Ao clicar no botão “Ver Tabuada”, exiba abaixo a tabuada como neste exemplo (considerando que o usuário escolheu a tabuada do 3 e para ir até o 12)
+
+                        d) Observar que quando o multiplicador for ímpar, a linha apareça na cor vermelha e quando for par, na cor azul. ex: "3 x 1 = 3" aparecer tudo em vermelho, mas "3 x 4 = 12" aparece tudo em azul.
+                 -->
+                <h2>Atividade 13</h2>
+                <p>Qual tabuada quer saber?</p>
+                <select id="sel_13">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+
+                <p>Até qual número deve ser construída?</p><input type="number" id="in_limite13">
+
+                <button onclick="atv13()">Ver tabuada!</button>
+            </div>
+
+            <!-- 14 -->
+            <div class="atv">
+                <!-- 
+                    14. Crie um programa o qual:
+                        a) Pergunte de quantos em quantos dias o usuário faz musculação (é só uma informação, só 1 número, ok?)
+                        b) Ao clicar em "Exibir rotina mensal", mostre uma sequência de 30 frases, como neste exemplo:
+
+                        Dia 1 - Musculação
+
+                        Dia 2 - Comer, dormir etc
+
+                        Dia 3 - Comer, dormir etc
+
+                        Dia 4 - Musculação
+
+                        Dia 5 - Comer, dormir etc
+
+                        Dia 6 - Comer, dormir etc
+
+                        Dia 7 - Musculação
+
+                        ...
+
+                        Dia 30 - Comer, dormir etc
+
+                    O Dia 1 sempre é de "Musculação"
+
+                    Considere que, nesse exemplo, o usuário informou 3 no item a)
+                 -->
+                <h2>Atividade 14</h2>
+                <p>De quantos em quantos dias você muscula?</p><input type="number" id="in_dias14">
+                <button onclick="atv14()">Exibir rotina mensal</button>
+            </div>
         </div>
     </div>
 </body>
@@ -188,17 +390,19 @@
 
     }
 
-    // Atv 5
+    // Atv 5   
     function atv5() {
         document.getElementById("resultado").style.display = "flex"
 
         var num = 1
 
+        resultado.innerHTML = ""
+
         while (num <= 30) {
             var cabalistico = num == 3 || num == 4 || num == 7 || num == 10 || num == 12
 
             if (!cabalistico) {
-                resultado.innerHTML += `${num} <br>`
+                resultado.innerHTML += `<p>${num}</p> <br>`
             }
             num++
         }
@@ -213,9 +417,168 @@
 
         var Seisnum = 1
 
+        resultado.innerHTML = ""
+
         while (Seisnum <= quantidade) {
             resultado.innerHTML += `<span>${pessoa} eu te amo, Sempre lembre disso!</span><br>`
             Seisnum++
         }
     }
+
+    // Atv 7
+    function atv7() {
+
+        document.getElementById("resultado").style.display = "flex"
+
+        var mult_Sete = 0
+        var numSete = in_numAtv7.value
+
+        resultado.innerHTML = ""
+
+        if (numSete < 20 || numSete > 100) {
+
+            alert('O número inserido não está entre 0 e 100, insira um número válido')
+
+        } else {
+
+            while (mult_Sete <= numSete) {
+
+                resultado.innerHTML += `<span>${mult_Sete}</span> <br>`
+
+                mult_Sete = mult_Sete + 5
+            }
+        }
+    }
+
+    // Atv 8
+    function atv8() {
+        document.getElementById("resultado").style.display = "flex"
+
+        var inicial8 = 0
+        var num8 = Number(in_atv8.value)
+
+        resultado.innerHTML = ""
+
+        if (num8 < 0 || num8 > 200) {
+            alert("Informe um número conforme solicitado!!")
+        } else {
+            while (inicial8 < num8) {
+                inicial8++
+                if (inicial8 % 7 == 0) {
+                    resultado.innerHTML += `<p>${inicial8}</p> <br>`
+                }
+            }
+        }
+    }
+
+    // Atv 9
+    function atv9() {
+        var num9 = Number(in_num9.value)
+        var frase9 = in_frase9.value
+        var contador9 = 1
+
+        resultado.innerHTML = ""
+
+        while (contador9 <= num9) {
+            alert(frase9)
+            contador9++
+        }
+    }
+
+    // Atv 10
+    function atv10() {
+        document.getElementById("resultado").style.display = "flex"
+
+        var num10 = in_num10.value
+        var contador10 = 0
+
+        resultado.innerHTML = ""
+
+        while (contador10 < num10) {
+
+            resultado.innerHTML += `<p>${contador10}</p>`
+
+            contador10++
+            contador10++
+        }
+    }
+
+    // Atv 11
+    function atv11() {
+        document.getElementById("resultado").style.display = "flex"
+
+
+        var quant11 = Number(in_trofeus11.value)
+        var contador11 = 1
+
+        resultado.innerHTML = ""
+
+        while (contador11 <= quant11) {
+
+            resultado.innerHTML += `<img src="./mundial.jpg" width="200" height="auto">`
+            contador11++
+        }
+    }
+
+    // Atv 12
+    function atv12() {
+        document.getElementById("resultado").style.display = "flex"
+
+        var voltas12 = Number(in_voltas12.value)
+        var contador12 = 1
+
+        resultado.innerHTML = ""
+
+        while (contador12 <= voltas12) {
+            resultado.innerHTML += `<p>Carro dando a ${contador12}ª volta</p>`
+            contador12++
+        }
+        resultado.innerHTML += `<p> Corrida Finalizada</p>`
+    }
+
+    // Atv 13
+    function atv13() {
+        document.getElementById("resultado").style.display = "flex"
+        resultado.innerHTML = ""
+
+        var sel13 = Number(sel_13.value)
+        var lim13 = Number(in_limite13.value)
+
+        var num13 = 1
+
+        while (num13 <= lim13) {
+            if (num13 % 2 == 1) {
+                resultado.innerHTML += `<p style="color: blue">${sel13} x ${num13} = ${sel13 * num13}</p>`
+                num13++
+            } else {
+                resultado.innerHTML += `<p style="color: red">${sel13} x ${num13} = ${sel13 * num13}</p>`
+                num13++
+            }
+        }
+
+    }
+
+    // Atv 14
+    function atv14() {
+        document.getElementById("resultado").style.display = "flex"
+        resultado.innerHTML = ""
+
+        var dias14 = Number(in_dias14.value)
+        var contador14 = 1
+        var mes14 = 30
+        var mus14 = "Musculação"
+        var folga14 = "Comer, dormir etc."
+
+        while (contador14 <= mes14) {
+            resultado.innerHTML += `<p>${contador14} - ${mus14}</p>`
+            contador14++
+            if (contador14 == dias14) {
+                resultado.innerHTML += `<p>${contador14} - ${folga14}</p>`
+            contador14++
+            }
+        }
+    }
+
+
+
 </script>
