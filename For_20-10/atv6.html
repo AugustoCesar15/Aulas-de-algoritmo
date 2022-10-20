@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 2</title>
+    <title>Atividade 6</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -60,12 +60,13 @@
         overflow-x: scroll;
     }
 
-    nav .bar::-webkit-scrollbar{
+    nav .bar::-webkit-scrollbar {
         border-radius: 20px;
         background-color: #9938385f;
         height: 10px;
     }
-    nav .bar::-webkit-scrollbar-thumb{
+
+    nav .bar::-webkit-scrollbar-thumb {
         border-radius: 20px;
         background-color: #993838;
         height: 10px;
@@ -103,7 +104,7 @@
         color: #993838;
     }
 
-    nav .theme span:hover{
+    nav .theme span:hover {
         cursor: pointer;
     }
 
@@ -139,14 +140,16 @@
         font-family: 'El Messiri';
     }
 
-    
-    ::-webkit-scrollbar{
+
+    ::-webkit-scrollbar {
         background-color: #9938387f;
     }
-    ::-webkit-scrollbar-thumb{
+
+    ::-webkit-scrollbar-thumb {
         background-color: #993838;
     }
-    .atividade .atividadeV input{
+
+    .atividade .atividadeV input {
         width: 23%;
         height: 23px;
         border: 2px #993838 solid;
@@ -160,7 +163,7 @@
         letter-spacing: 1.5px;
     }
 
-    .atividade .atividadeV button{
+    .atividade .atividadeV button {
         margin: 10px 0;
         background-color: transparent;
         border-radius: 10px;
@@ -173,8 +176,7 @@
         color: #993838;
     }
 
-
-    .atividade .atividadeV button:hover{
+    .atividade .atividadeV button:hover {
         background-color: #993838;
         color: #f5f5f5;
         letter-spacing: 2px;
@@ -217,25 +219,25 @@
             </span></div>
     </nav>
 
+
     <!-- 
-    2.  Crie um programa o qual:
-
-        a) Tenha um botão "Conte de 99 a 1"
-
-        b) Ao clicar nele, mostre na tela, um abaixo do outro, os números de 99 a 1
- -->
+        6. Crie um programa o qual:
+            a) Ao clicar num botão "Números cabalísticos"...
+            c) Exiba, debaixo do botão, os números de 1 a 15, 
+            um embaixo do outro, PORÉM, não devem aparecer os números cabalísticos 3, 4, 7, 10 e 12. 
+     -->
     <div class="atividade">
         <div class="titulo">
-            <h2>Atividade 2
-            </h2>
+            <h2>Atividade 6</h2>
         </div>
 
         <div class="atividadeV">
-            <button onclick="mostrar()">Conte de 99 a 1</button>
-        </div>
-        <div class="resposta" id="resultado"></div>
-    </div>
+            <button onclick="mostrar()">Números cabalísticos</button>
 
+        </div>
+
+        <div id="resultado" class="resposta"></div>
+    </div>
 </body>
 
 </html>
@@ -243,9 +245,14 @@
     function mostrar() {
         resultado.innerHTML = ""
 
-        for (var contador = 99; contador > 0; contador--) {
-            resultado.innerHTML += `${contador}<br>`
+        for (var contador = 1; contador <= 15; contador++) {
+            if (contador == 3 || contador == 4 || contador == 7 || contador == 10 || contador == 12) {
+                resultado.innerHTML += ""
+            } else {
+                resultado.innerHTML += `${contador} <br>`
+            }
         }
+
     }
 </script>
 
