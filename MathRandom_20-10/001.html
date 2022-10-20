@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Random</title>
+</head>
+
+<body>
+    <h2>números aleatórios</h2>
+    <button onclick="zeroaum()">De 0 à 1</button>
+
+    <button onclick="ate100()">De 0 até 100</button>
+
+    <button onclick="umate10()">De 0 até </button>
+
+    <button onclick="inteiroate10()">Número inteiro até 10</button>
+<br>
+<button onclick="apagar()">Apagar</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+<script>
+    function zeroaum (){
+        var sorteio = Math.random()
+        resultado.innerHTML += `Sorteado: ${sorteio}<br>`
+    }
+    function ate100() {
+        var sorteio = Math.random() * 100
+        resultado.innerHTML += `Sorteado: ${sorteio}<br>`
+    }
+    function umate10() {
+        var sorteio = 1 + Math.random() * 10
+        resultado.innerHTML += `Sorteado: ${sorteio}<br>`
+    }
+    function inteiroate10() {
+        var sorteio = parseInt(1 + Math.random() * 10)
+        resultado.innerHTML += `Sorteado: ${sorteio}<br>`
+    }
+
+
+    function apagar() {
+        resultado.innerHTML = ""
+    }
+</script>

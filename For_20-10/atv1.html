@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=El+Messiri&display=swap');
+
+    /* 'Comforter Brush' AND  'El Messiri'*/
+
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f5f5f5;
+    }
+
+    nav {
+        width: 100%;
+        height: 80px;
+        border-bottom: 1px #3939395f solid;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    nav .logo {
+        width: 20%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .logo a {
+        color: #993838;
+        font-family: 'Comforter Brush', cursive;
+        font-size: 45px;
+        font-weight: 100;
+        text-decoration: none;
+    }
+
+    nav .bar {
+        width: 60%;
+        height: 80px;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        overflow-x: scroll;
+    }
+
+    nav .bar::-webkit-scrollbar{
+        border-radius: 20px;
+        background-color: #9938385f;
+        height: 10px;
+    }
+    nav .bar::-webkit-scrollbar-thumb{
+        border-radius: 20px;
+        background-color: #993838;
+        height: 10px;
+    }
+
+    nav .bar ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+    }
+
+    nav .bar ul li {
+        width: 110px;
+        /* margin: 0 15px; */
+    }
+
+    nav .bar ul li a {
+        text-decoration: none;
+        color: #993838;
+        font-family: 'El Messiri';
+        font-size: 28px;
+    }
+
+    nav .theme {
+        width: 10%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px red solid; */
+    }
+
+    nav .theme span {
+        font-size: 40px;
+        color: #993838;
+    }
+
+    nav .theme span:hover{
+        cursor: pointer;
+    }
+
+    .atividade {
+        width: 70%;
+        height: 42vmax;
+        margin: 0 auto;
+    }
+
+    .atividade .titulo {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .atividade .titulo h2 {
+        font-family: 'Comforter Brush';
+        font-size: 35px;
+        font-weight: normal;
+    }
+
+    .atividade .atividadeV {
+        width: 100%;
+        height: 200px;
+        /* background-color: #383838; */
+        overflow-y: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'El Messiri';
+    }
+
+    
+    ::-webkit-scrollbar{
+        background-color: #9938387f;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: #993838;
+    }
+    .atividade .atividadeV input{
+        width: 23%;
+        height: 23px;
+        border: 2px #993838 solid;
+        border-radius: 10px;
+        background-color: transparent;
+        outline: 0;
+        padding-left: 10px;
+        font-family: 'El Messiri';
+        color: #993838;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+    }
+
+    .atividade .atividadeV button{
+        margin: 10px 0;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        border: 2px solid #993838;
+        padding: 10px 15px;
+        font-family: serif;
+        font-family: 'El Messiri';
+        font-weight: 800;
+        transition: all 0.7s;
+        color: #993838;
+    }
+
+    .atividade .atividadeV button:hover{
+        background-color: #993838;
+        color: #f5f5f5;
+        letter-spacing: 2px;
+        border-radius: 50px;
+    }
+
+    .atividade .resposta {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        overflow-y: auto;
+        font-family: 'El Messiri';
+    }
+</style>
+
+<body id="body">
+
+    <nav id="nav">
+        <div class="logo">
+            <a href="./001.html">FOR</a>
+        </div>
+        <div class="bar">
+            <ul>
+                <li><a href="./atv1.html">Atv 1</a></li>
+                <li><a href="./atv2.html">Atv 2</a></li>
+                <li><a href="./atv3.html">Atv 3</a></li>
+                <li><a href="./atv4.html">Atv 4</a></li>
+                <li><a href="./atv5.html">Atv 5</a></li>
+                <li><a href="./atv6.html">Atv 6</a></li>
+                <li><a href="./atv7.html">Atv 7</a></li>
+                <li><a href="./atv8.html">Atv 8</a></li>
+                <li><a href="./atv9.html">Atv 9</a></li>
+                <li><a href="./atv10.html">Atv 10</a></li>
+            </ul>
+        </div>
+        <div class="theme"><span class="material-symbols-outlined" onclick="mudarTema()">
+                settings_brightness
+            </span></div>
+    </nav>
+
+
+    <!-- 
+        1. Crie um programa o qual:
+
+        a) Tenha um botão "Diga algo sobre a quarentena"
+
+        b) Ao clicar nele, mostre na própria página 7 vezes uma mesma frase a sua escolha   
+     -->
+
+    <div class="atividade">
+        <div class="titulo">
+            <h2>Atividade 1</h2>
+        </div>
+
+        <div class="atividadeV">
+            <button onclick="mostrar()">Diga algo sobre a quarentena</button>
+        </div>
+
+        <div id="resultado" class="resposta"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        resultado.innerHTML = ""
+
+        for (var contador = 0; contador <= 7; contador++) {
+            resultado.innerHTML += 'Tá no fim! <br>'
+        }
+    }
+</script>
+
+
+<script>
+    var numTema = 1
+    function mudarTema() {
+
+        var corpo = document.getElementById("body")
+        var nave = document.getElementById("nav")
+
+        if (numTema == 1) {
+            corpo.style.backgroundColor = "#383838"
+            nave.style.borderBottom = "1px #f5f5f5e5 solid"
+            numTema = 0
+        } else if (numTema == 0) {
+            corpo.style.backgroundColor = "#f5f5f5"
+            nave.style.borderBottom = "1px #3838385f solid"
+
+            numTema = 1
+        }
+    }
+</script>
