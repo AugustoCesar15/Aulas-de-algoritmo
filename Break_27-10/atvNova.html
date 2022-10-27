@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Cadastro de frutas</h2>
+
+    <input type="text" id="in_fruta" placeholder="Qual a fruta?">
+    <button onclick="cadastrar()">
+        cadastrar
+    </button>
+
+    <div>
+        Total de frutas: <b id="b_total"></b><br>
+        1ª Fruta: <b id="b_segunda"></b><br>
+        4ª Fruta: <b id="b_quarta"></b><br>
+        Quem é lindo: <b id="verdade"></b>
+    </div>
+
+</body>
+</html>
+
+<script>
+    var frutas = []
+    function cadastrar() {
+        frutas.push(in_fruta.value)
+        in_fruta.value = ""
+
+        b_total.innerHTML = frutas.length
+        b_segunda.innerHTML = frutas[0]
+        b_quarta.innerHTML = frutas[3]
+        verdade.innerHTML = frutas[frutas.length-1]
+    }
+</script>

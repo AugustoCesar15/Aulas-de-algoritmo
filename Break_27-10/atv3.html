@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 3</title>
+</head>
+
+<body>
+    <!-- 
+        3. (Desafio) Existe um dito popular que diz que se você tem sorte no amor tem azar no jogo e vice-versa. Assim, crie um programa o qual:
+
+            a) Tenha um botão "Ver minha sorte".
+            b) Ao ser clicado, ele exibe, no máximo*, 21 imagens, uma ao lado da outra. Essa imagens só podem ser ou de um coraçãozinho ou de uma carta de baralho (deixe todas na mesma altura para ficar mais bonito na tela)
+
+            A distribuição das imagens é aleatória. Ao final serão, no máximo*, 21 imagens, entre corações e cartas, isso que importa
+
+            c) Abaixo de todas a imagens, devem aparacer uma dessas mensagens:
+               "Você tem mais sorte no amor" caso tenham sido sorteados mais corações
+               "Você tem mais sorte no jogo" caso tenham sido sorteados mais cartas de baralho
+
+            d) * - Porém... Caso o programa chegue a sortear 11 imagens de uma das 2 figuras antes de 21 sorteios, interrompa imediatamente os sorteios (já que já se sabe o resultado). 
+     -->
+
+    <button onclick="mostrar()">Ver minha sorte</button>
+
+
+    <div id="resultado"></div>
+    <!-- <img src="./coracao.png" width="100" height="100"> -->
+</body>
+
+</html>
+
+<script>
+    function mostrar() {
+        resultado.innerHTML = ''
+
+        var sorteAmor = parseInt(Math.random() * 22)
+        var sorteJogo = parseInt(Math.random() * 22)
+        var limite = 21
+        var imgameAmor = 0
+        var imgameJogo = 0
+
+        for (var sorteioImg = 0; (sorteAmor + sorteJogo) < limite;) {
+            sorteioImg = parseInt(1 + Math.random() * 2)
+
+            if (sorteioImg == 1) {
+                imgameAmor++
+                if (imgameAmor <= sorteAmor) {
+                    resultado.innerHTML = `<img src="./coracao.png" width="100" height="100">`
+                }
+            } else {
+                imgameJogo++
+                if(imgameJogo <= sorteJogo){
+                    resultado.innerHTML = `<img src="./baralho.png" width="100" height="100">`
+                }
+            }
+
+        }
+
+    }
+</script>
