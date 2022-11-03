@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+</head>
+
+<body>
+    <!-- 
+        1. Crie um Programa em HTML o qual:
+
+            a) Tenha uma lista de frutas a qual o usuário não vê
+
+            b) Tenha na tela um campo na qual o usuário digita o nome de uma fruta e um botão "Pesquisar"
+
+            c) Ao clicar nesse botão, o programa busca essa fruta na lista. Se achar, exibe um texto abaixo com uma frase como esta:
+
+            A fruta X existe na lista
+
+            d) Caso a fruta pesquisada não exista, exiba:
+
+            Não existe a fruta X na lista
+
+            #ficaadica – para criar um vetor com conteúdo, separe cada elemento com virgula, p.e.    
+
+            var vt_alunos = [“Paulo”, “Ana”, “João”];
+    -->
+
+    <input type="text" id="in_pesquisa"><button onclick="pesquisar()">Pesquisar</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+<script>
+    var frutas = ["Morango", "Pera", "Uva", "Abacaxi", "Melão", "Tomate"]
+
+    function pesquisar() {
+        var resultado = frutas.indexOf(in_pesquisa.value)
+
+        var frase
+        if (resultado >= 0) {
+            frase = `A fruta <b>${in_pesquisa.value}</b> existe na lista`
+        } else {
+            frase = `Não existe a fruta <b>${in_pesquisa.value}</b> na lista`
+        }
+        div_resultado.innerHTML = frase
+    }
+</script>
