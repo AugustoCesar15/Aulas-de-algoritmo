@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D E S A F I O</title>
+</head>
+<style>
+    body {
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <!-- 
+. Vand Edor solicitou uma melhoria em seu programa, onde agora os seus produtos podem ser categorizados de acordo com os "tipos de produto", sendo eles:
+
+  - Gerais
+
+  - Alimentos
+
+  - Eletrônicos
+
+Além dos tipos dos produtos, Vand solicitou a implementação de um campo de filtros, onde temos as seguintes possibilidades: 
+
+  - Pesquisar produto por nome
+
+  - Pesquisar produto por tipo
+
+Com isso, Vand consegue identificar de maneira mais fácil os produtos que ele tem cadastrado.
+
+Implemente as melhorias, criando um programa que: 
+
+a) Solicite o nome do produto;
+
+b) Solicite o tipo do produto numa combo, com as opções de produtos (gerais, alimentos, eletrônicos);
+
+c) Solicite o preço do produto;
+
+d) Ao clicar em "Registrar Produto":
+
+  d.1.) Caso algum dos campos acima esteja vazio, exiba em um alerta a frase "Verifique o preenchimento dos campos e tente novamente";
+
+  d.2.) Caso estejam válidas, todas as informações do produto devem ser armazenadas em uma lista de produtos;
+
+f.) Ao clicar em "Verificar Produtos": 
+
+  f.1.) Caso a lista esteja vazia, exiba em um alerta a frase "Não há produtos registrados na lista";
+
+  f.2.) Caso contrário, prossiga para o item g);
+
+g) Abaixo dos botões, exiba todos os produtos da lista, da seguinte forma:
+
+  Produto: NOME_PRODUTO
+
+  Preço: R$ PRECO_PRODUTO
+
+
+
+  Produto: NOME_PRODUTO
+
+  Preço: R$ PRECO_PRODUTO
+
+h) Abaixo da lista de produtos, tenha um novo formulário de "filtros", para realizar as devidas buscas;
+
+i) Tenha um campo "Pesquisar por Produto" e um botão "Procurar", que ao clicar deve fazer as devidas validações, onde: 
+
+  i.1.) Ao percorrer a lista, caso não encontre o produto pesquisado, emita um alerta dizendo "Não há nenhum produto com este nome registrado!";
+
+  i.2.) Caso contrário, abaixo dos botões de filtro, exiba todos os produtos que possuam o nome pesquisado; 
+
+j) Tenha uma combo "Pesquisar por Tipo", com as opções de produtos (gerais, alimentos, eletrônicos) e um botão "Procurar", que ao clicar deve fazer as devidas validações, onde: 
+
+  j.1.) Ao percorrer a lista, caso não encontre nenhum produto com o tipo selecionado na combo, emita um alerta dizendo "Não há nenhum produto deste tipo registrado!";
+
+  j.2.) Caso contrário, abaixo dos botões de filtro, exiba todos os produtos que possuam o nome pesquisado;
+
+
+
+
+
+OBS: No item d), utilize JSON para armazenar as informações do produto na lista;
+
+OBS2: Deve limpar as mensagens existentes ao clicar em "Registrar Produto" ou "Verificar Produtos" (caso caia nos cenários inválidos)
+
+OBS3: As mensagens de i) e j) utilizam uma div diferente das mensagens em f);
+
+OBS4: No filtro do tipo de produto em j), deve ser uma select diferente da select em b), porém com os mesmos valores;
+     -->
+    <div class="parteum">
+        <p>Informe o <b>nome</b> do produto:</p>
+        <input type="text" placeholder="Nome produto" id="in_nomeProduto">
+
+        <p>Informe o <b>tipo</b> do produto:</p>
+        <select id="sel_tipos">
+            <option value=""> - Selecione o tipo - </option>
+            <option value="Gerais">Gerais</option>
+            <option value="Alimentos">Alimentos</option>
+            <option value="Eletrônicos">Eletrônicos</option>
+        </select>
+
+        <p>Informe o <b>preço</b> do produto</p>
+        <input type="number" placeholder="Preço do Produto" id="in_precoProduto">
+
+        <button onclick="registrar()">Registrar Produto</button>
+        <br>
+        <button onclick="verificar()">Verificar Produtos</button>
+
+        <div id="div_resultado"></div>
+    </div>
+    <div class="parte2">
+        <h1>Filtros</h1>
+
+        <p>Pesquisar por produto:</p>
+        <input type="text" id="in_pesquisa" placeholder="Qual produto deseja pesquisar?">
+        <button onclick="procurarProduto()">Procurar</button>
+
+        <p>Pesquise por tipo:</p>
+        <select id="sel_pesquisa">
+            <option value="Gerais">Gerais</option>
+            <option value="Alimentos">Alimentos</option>
+            <option value="Eletrônicos">Eletrônicos</option>
+        </select>
+        <button onclick="pesquisaSel()">Procurar</button>
+
+
+        <div id="div_resultado_dois"></div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var produto = {
+        nome: [],
+        preco: [],
+        tipo: []
+    }
+
+    function registrar() {
+        var Pnome = in_nomeProduto.value
+        var Ppreco = in_precoProduto.value
+        var Ptipo = sel_tipos.value
+
+
+        if (Pnome == "" || Ppreco == "" || Ptipo == "") {
+            alert('Inválido! Verifique o preenchimento dos campos e tente novamente!')
+        } else {
+            produto.nome.push(in_nomeProduto.value)
+            produto.preco.push(in_precoProduto.value)
+            produto.tipo.push(sel_tipos.value)
+        }
+    }
+
+    function verificar() {
+        div_resultado.innerHTML = ''
+
+        if (produto.nome == "" || produto.preco == "" ||
+            produto.tipo == "") {
+            alert('Não há produtos registrados na lista!')
+        } else {
+            // alert('AUGUSTO lindo')
+
+            for (var indice = 0; indice < produto.nome.length && indice < produto.preco.length && indice < produto.tipo.length; indice++) {
+
+                var atualNome = produto.nome[indice]
+                var atualPreco = produto.preco[indice]
+                var atualTipo = produto.tipo[indice]
+
+                div_resultado.innerHTML += `Produto: ${atualNome} <br> Preço: ${atualPreco}<br> Tipo: ${atualTipo}<br><br>`
+            }
+        }
+    }
+
+    function procurarProduto() {
+        div_resultado_dois.innerHTML = ""
+
+        var pesquisa = in_pesquisa.value
+        var vezes = 0
+
+        for (var indice = 0; indice < produto.nome.length; indice++) {
+            var atualNome = produto.nome[indice]
+            var atualPreco = produto.preco[indice]
+            var atualTipo = produto.tipo[indice]
+
+            if (atualNome == pesquisa) {
+                vezes++
+            }
+        }
+
+        if (vezes > 0) {
+            div_resultado_dois.innerHTML += `Produto: ${atualNome} <br> Preço: ${atualPreco}<br> Tipo: ${atualTipo}<br><br>`
+        } else {
+            alert('Não há nenhum produto com este nome registrado!')
+        }
+
+    }
+
+    function pesquisaSel() {
+        div_resultado_dois.innerHTML = ""
+
+        var pesquisa1 = sel_pesquisa.value
+        var vezes = 0
+
+        for (var indice = 0; indice < produto.tipo.length; indice++) {
+            var atualNome = produto.nome[indice]
+            var atualPreco = produto.preco[indice]
+            var atualTipo = produto.tipo[indice]
+
+            if (atualTipo == pesquisa1) {
+                vezes++
+            }
+        }
+
+        if (vezes > 0) {
+            div_resultado_dois.innerHTML += `Produto: ${atualNome} <br> Preço: ${atualPreco}<br> Tipo: ${atualTipo}<br><br>`
+        } else {
+            alert('Não há nenhum produto com este nome registrado!')
+        }
+
+    }
+</script>

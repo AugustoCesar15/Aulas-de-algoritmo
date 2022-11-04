@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de JASON</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home | Introdução</a></li>
+            <li><a href="./atv1.html">Atv 1</a></li>
+        </ul>
+    </nav>
+
+    <input type="text" id="in_amigos" placeholder="Informe o nome de seu amigo" style="width: 300px; height: 30px;">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="mostrar()">Exibir Amigos</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    var pessoa = {
+        nome: "Augusto",
+        idade: 19,
+        amigos: []
+    }
+
+    function cadastrar() {
+        pessoa.amigos.push(in_amigos.value)
+    }
+
+    function mostrar() {
+        div_resultado.innerHTML = ' '
+        div_resultado.innerHTML += `Pessoa: ${pessoa.nome} <br> Tem os amigos:`
+
+        for (var conta = 0; conta < pessoa.amigos.length; conta++) {
+
+            var atual = pessoa.amigos[conta]
+            
+            div_resultado.innerHTML += `<br> ${atual}`
+            
+        }
+
+    }
+
+
+</script>

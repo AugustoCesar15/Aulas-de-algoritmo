@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Ubuntu';
+    }
+
+    body {
+        /* height: 100vh; */
+        background-image: url('./fundo.png');
+        background-size: cover;
+        background-position: center;
+        background-color: #f5f5f5;
+    }
+
+    .navBar {
+        width: 30%;
+        height: 4vmax;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding-left: 40px;
+        /* position: absolute; */
+    }
+
+    .navBar span {
+        font-size: 2.4em;
+        color: #bb3838;
+        position: relative;
+        z-index: 3000;
+        transition: all 500ms;
+        cursor: pointer;
+    }
+
+    nav {
+        width: 20%;
+        height: 30vmax;
+        position: absolute;
+        z-index: 1000;
+        left: -31%;
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px 20px 20px 0;
+        overflow-x: auto;
+        box-shadow: 0 -1px 10px #383838;
+        transition: all 1s;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    nav ul li {
+        list-style: none;
+        margin: 0 20px;
+    }
+
+    nav ul li a {
+        color: #383838;
+        text-decoration: none;
+        font-size: 1.2em;
+        transition: all 1s;
+    }
+
+    nav ul li a:hover {
+        font-size: 1.4em;
+    }
+
+    .atividade {
+        width: 50%;
+        height: 35vmax;
+        border-radius: 30px;
+        margin: 30px;
+        box-shadow: 0 0 20px #383838;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        float: left;
+        background-color: #f5f5f56f;
+    }
+
+    .atividade .caixa{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .atividade p {
+        color: #bb3838;
+        font-size: 1.2em;
+    }
+
+    .atividade input {
+        width: 30%;
+        height: 40px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border: 2px solid #bb3838;
+        background-color: transparent;
+        outline: none;
+        padding-left: 10px;
+        color: #bb3838;
+    }
+
+    .atividade button {
+        width: 25%;
+        height: 40px;
+        border: none;
+        background-color: #bb3838;
+        border-radius: 5px;
+        color: #f5f5f5;
+        cursor: pointer;
+        outline: none;
+        transition: all 1s;
+        margin: 5px;
+    }
+
+    .atividade button:hover {
+        border-radius: 40px;
+        transform: scale(1.1);
+        border: 1px solid #bb3838;
+        background-color: #f5f5f5;
+        color: #bb3838;
+    }
+
+    .resposta {
+        width: 30%;
+        height: 400px;
+        background-color: #bb3838;
+        border-radius: 20px;
+        float: right;
+        margin: 60px 100px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 15px #383838;
+    }
+
+    .resposta p {
+        color: #f5f5f5;
+        font-size: 1.3em;
+    }
+</style>
+
+<body>
+    <nav id="escondida">
+        <ul>
+            <li><a href="./atv1.html">Atv 1</a></li>
+            <li><a href="./atv2.html">Atv 2</a></li>
+        </ul>
+    </nav>
+    <div class="navBar">
+        <span class="material-symbols-outlined" onclick="navbar()" id="btn-menu">
+            menu
+        </span>
+    </div>
+    <!-- 
+        2. Crie um Programa o qual:
+
+            a) Tenha um campo "Destino de viagem" e um botão "Adicionar"
+
+            b) Ao clicar no botão, esse destino deve ser adicionado em algum lugar o qual o usuário não vê. Não existe problema em serem registrados valores repetidos
+
+            c) Deve haver os botões:
+
+            "Primeira viagem" - Ao clicar nele, aparece abaixo o primeiro local cadastrado ou "ainda não viajou", caso nenhuma viagem tenha sido registrada
+
+            "Terceira viagem" - Ao clicar nele, aparece abaixo o 3º local cadastrado ou "ainda fez a 3ª viagem", caso não tenha feito 3 viagens ainda
+
+            "Última viagem" - Ao clicar nele, aparece abaixo o último local cadastrado ou "ainda não viajou", caso nenhuma viagem tenha sido registrada
+
+            OBS: Obtenha esses três valores SOMENTE do vetor que criar
+    -->
+    <div class="atividade">
+        <p>Informe o destino da viagem:</p>
+        <div class="caixa">
+            <input type="text" id="in_local" placeholder="Destino da viagem">
+            <button onclick="adicionar()">Adicionar</button>
+        </div>
+        <button onclick="primeira()">Primeira viagem</button>
+        <button onclick="terceira()">Terceira viagem</button>
+        <button onclick="ultima()">Última viagem</button>
+    </div>
+
+    <div id="div_resultado" class="resposta"></div>
+</body>
+
+</html>
+<!-- firula da navBar -->
+<script>
+    var numBar = 1
+    function navbar() {
+        var nav = document.getElementById('escondida').style
+        var btnBar = document.getElementById('btn-menu').style
+
+        if (numBar == 1) {
+            nav.left = "0"
+            btnBar.transform = "rotate(-90deg)"
+
+            numBar++
+        } else {
+            nav.left = "-30%"
+            btnBar.transform = "rotate(0deg)"
+
+            numBar = 1
+        }
+    }
+</script>
+
+<!-- Atividade -->
+<script>
+    var viagens = []
+
+    function adicionar() {
+        viagens.push(in_local.value)
+    }
+
+    function primeira() {
+        div_resultado.innerHTML = ''
+    }
+</script>

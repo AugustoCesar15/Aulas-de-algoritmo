@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home | Introdução</a></li>
+            <li><a href="./atv1.html">Atv 1</a></li>
+        </ul>
+    </nav>
+
+    <p>Informe seu nome: </p><input type="text" id="ipt_nome">
+    <p>Informe seu telefone: </p><input type="text" id="ipt_tel">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir Lista</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    var contatos = []
+
+    function cadastrar() {
+        var contato = {
+            nome: ipt_nome.value,
+            telefone: ipt_tel.value
+        }
+        contatos.push(contato)
+    }
+
+    function exibir() {
+        div_mensagem.innerHTML = ''
+
+        for (var indice = 0; indice < contatos.length; indice++) {
+
+            var atual = contatos[indice]
+
+            div_mensagem.innerHTML += `Nome: ${atual.nome} <br> Telefone: ${atual.telefone}<br><br>`
+        }
+    }
+
+</script>

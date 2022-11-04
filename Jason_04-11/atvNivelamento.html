@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade de nivelamento</title>
+</head>
+
+<body>
+    <!-- 
+        1. Vand Edor abriu a sua nova loja de produtos e precisa de ajuda para controlar melhor os seus produtos.
+
+            Para ajudá-lo no controle de seu estabelecimento, crie um programa que:
+
+            a) Solicite o nome do produto;
+
+            b) Solicite o preço do produto;
+
+            c) Ao clicar em "Registrar Produto", faça:
+
+            c.1.) Caso algum dos campos acima esteja vazio, exiba em um alerta, a frase "Inválido! Verifique o preenchimento dos campos e tente novamente!";
+
+            c.2.) Caso contrário, todas as informações do produto devem ser armazenadas em uma lista de produtos;
+
+            d) Ao clicar em "Verificar Produtos": 
+
+            d.1.) Caso a lista esteja vazia, exiba em um alerta, a frase "Não há produtos registrados na lista!";
+
+            d.2.) Caso contrário, prossiga para o item e);
+
+            e) Abaixo dos botões, exiba todos os produtos da lista, da seguinte forma:
+
+            Produto: NOME_PRODUTO
+
+            Preço: R$ PRECO_PRODUTO
+
+
+            Produto: NOME_PRODUTO
+
+            Preço: R$ PRECO_PRODUTO
+
+            OBS: No item c), utilize JSON para armazenar as informações do produto na lista; 
+
+            OBS2: Deve limpar as mensagens existentes ao clicar em "Registrar Produto" ou "Verificar Produtos" (caso caia nos cenários inválidos)
+ -->
+
+    <p>Informe o <b>nome</b> do produto:</p>
+    <input type="text" placeholder="Nome produto" id="in_nomeProduto">
+
+    <p>Informe o <b>preço</b> do produto</p>
+    <input type="number" placeholder="Preço do Produto" id="in_precoProduto">
+
+    <button onclick="registrar()">Registrar Produto</button>
+    <br>
+    <button onclick="verificar()">Verificar Produtos</button>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    var produto = {
+        nome: [],
+        preco: []
+    }
+
+    function registrar() {
+        var Pnome = in_nomeProduto.value
+        var Ppreco = in_precoProduto.value
+
+
+        if (Pnome == "" || Ppreco == "") {
+            alert('Inválido! Verifique o preenchimento dos campos e tente novamente!')
+        } else {
+            produto.nome.push(in_nomeProduto.value)
+            produto.preco.push(in_precoProduto.value)
+        }
+    }
+
+    function verificar() {
+        div_resultado.innerHTML = ''
+
+        if (produto.nome == "" || produto.preco == "") {
+            alert('Não há produtos registrados na lista!')
+        } else {
+            // alert('AUGUSTO lindo')
+
+            for (var indice = 0; indice < produto.nome.length && indice < produto.preco.length;
+                indice++) {
+
+                var atualNome = produto.nome[indice]
+                var atualPreco = produto.preco[indice]
+
+                div_resultado.innerHTML += `Produto: ${atualNome} <br> Preço: ${atualPreco}<br><br>`
+            }
+        }
+    }
+
+
+
+</script>
