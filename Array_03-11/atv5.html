@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 2</title>
+    <title>Atividade 5</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
@@ -195,79 +195,73 @@
         </span>
     </div>
     <!-- 
-        2. Crie um Programa o qual:
+        5. Crie um programa o qual:
 
-            a) Tenha um campo "Destino de viagem" e um botão "Adicionar"
+            a) Usuário vai cadastrando os nomes de seus filmes favoritos. 
+            Digita num campo e clica em "Cadastrar"
 
-            b) Ao clicar no botão, esse destino deve ser adicionado em algum lugar o qual o usuário não vê. Não existe problema em serem registrados valores repetidos
+            b) Ele pode cadastrar quantos filmes quiser
 
-            c) Deve haver os botões:
+            c) Na medida que vai cadastrando, 
+            deve ser exibido ou atualizado um "painel" como neste exemplo:
 
-            "Primeira viagem" - Ao clicar nele, aparece abaixo o primeiro local cadastrado ou "ainda não viajou", caso nenhuma viagem tenha sido registrada
+              Seu filme favorito: 50 tons de cinza
 
-            "Terceira viagem" - Ao clicar nele, aparece abaixo o 3º local cadastrado ou "ainda fez a 3ª viagem", caso não tenha feito 3 viagens ainda
+              Seu 3º filme favorito: A era do gelo 1
 
-            "Última viagem" - Ao clicar nele, aparece abaixo o último local cadastrado ou "ainda não viajou", caso nenhuma viagem tenha sido registrada
+              Total de filmes cadastrados: 5
 
-            OBS: Obtenha esses três valores SOMENTE do vetor que criar
+            OBS: no "3º filme", caso não tenham sido cadastrados ainda 3 filmes, 
+            exibir "Ainda não existe".
+
+            OBS: o "filme favorito" é o primeiro cadastrado
     -->
     <div class="atividade">
-        <p>Informe o destino da viagem:</p>
+        <p>Informe seus filmes favoritos</p>
         <div class="caixa">
-            <input type="text" id="in_local" placeholder="Destino da viagem">
-            <button onclick="adicionar()">Adicionar</button>
+            <input type="text" id="in_filmes" placeholder="Filmes favoritos">
+            <button onclick="cadastrar()">Cadastrar filme</button>
         </div>
-        <button onclick="primeira()">Primeira viagem</button>
-        <button onclick="terceira()">Terceira viagem</button>
-        <button onclick="ultima()">Última viagem</button>
     </div>
 
     <div id="div_resultado" class="resposta">
-
+        <p>Seu filme favorito:</p><b id="b_favorite"></b>
+        <p>Seu 3º filme favorito:</p><b id="b_terceiro"></b>
+        <p>Total de filmes cadastrados:</p><b id="b_total"></b>
     </div>
 </body>
 
 </html>
 <!-- Atividade -->
 <script>
-    var viagens = []
 
-    function adicionar() {
-        viagens.push(in_local.value)
-    }
+    var filmes = []
 
-    function primeira() {
-        div_resultado.innerHTML = ''
+    function cadastrar() {
+        filmes.push(in_filmes.value)
 
-        if (viagens.length > 0) {
-            div_resultado.innerHTML += `<p>Primeira viagem: ${viagens[0]} <br></p>`
+        var contador = 0
+        
+        while (contador < filmes.length) {
 
-        } else {
-            div_resultado.innerHTML += `Ainda não viajou`
+            b_favorite.innerHTML = `<p>${filmes[0]}<br></p>`
+            
+            if (contador >= 2) {
+                b_terceiro.innerHTML = `<p>${filmes[2]}<br></p>`
+            } else {
+                b_terceiro.innerHTML = `Ainda não existe`
+            }
+            
+            b_total.innerHTML = `<p>${filmes.length}<br></p>`
+            
+            contador++
         }
+        
     }
+    
 
-    function terceira() {
-        div_resultado.innerHTML = ''
 
-        if (viagens.length > 0) {
-            div_resultado.innerHTML += `<p>Terceira viagem: ${viagens[2]} <br></p>`
 
-        } else {
-            div_resultado.innerHTML += `Ainda não fez a 3ª viagem`
-        }
-    }
-
-    function ultima (){
-        div_resultado.innerHTML = ''
-
-        if (viagens.length > 0) {
-            div_resultado.innerHTML += `<p>Última viagem: ${viagens[viagens.length - 1]} <br></p>`
-
-        } else {
-            div_resultado.innerHTML += `Ainda não viajou`
-        }
-    }
 </script>
 
 

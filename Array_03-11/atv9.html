@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 2</title>
+    <title>Atividade 9</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
@@ -162,7 +162,8 @@
 
     .resposta p {
         color: #f5f5f5;
-        font-size: 1.3em;
+        font-size: 1.1em;
+        text-align: center;
     }
 </style>
 
@@ -195,79 +196,79 @@
         </span>
     </div>
     <!-- 
-        2. Crie um Programa o qual:
+       9. a) Pergunte para o usuário o nome de cada projeto que já criou na vida. Ele digita e clica em "Registrar projeto". Na medida que ele vai cadastrando, verifique quantos projetos já foram cadastrados e exiba o seguinte texto abaixo:
 
-            a) Tenha um campo "Destino de viagem" e um botão "Adicionar"
+        Você já fez X projetos. Por isso você é um profissional Z
 
-            b) Ao clicar no botão, esse destino deve ser adicionado em algum lugar o qual o usuário não vê. Não existe problema em serem registrados valores repetidos
+        X é a quantidade de projetos e Z é seu nível de experiência, segundo estas regras:
 
-            c) Deve haver os botões:
+        0 a 4: Júnior
 
-            "Primeira viagem" - Ao clicar nele, aparece abaixo o primeiro local cadastrado ou "ainda não viajou", caso nenhuma viagem tenha sido registrada
+        5 a 12: Pleno desde o projeto "nome do 5º projeto"
 
-            "Terceira viagem" - Ao clicar nele, aparece abaixo o 3º local cadastrado ou "ainda fez a 3ª viagem", caso não tenha feito 3 viagens ainda
+        u mais: Sênior desde o projeto "nome do 13º projeto"
 
-            "Última viagem" - Ao clicar nele, aparece abaixo o último local cadastrado ou "ainda não viajou", caso nenhuma viagem tenha sido registrada
+        b)  Tenha um botão “Mostrar Projetos” que quando clicado mostra os projetos cadastrados, um abaixo do outro, em ordem inversa ao que foi cadastrado.
 
-            OBS: Obtenha esses três valores SOMENTE do vetor que criar
-    -->
+       -->
     <div class="atividade">
-        <p>Informe o destino da viagem:</p>
+        <p>Informe seus projetos</p>
         <div class="caixa">
-            <input type="text" id="in_local" placeholder="Destino da viagem">
-            <button onclick="adicionar()">Adicionar</button>
+            <input type="text" id="in_projetos" placeholder="Nome dos projetos">
+            <button onclick="cadastrar()">Registrar projetos</button>
         </div>
-        <button onclick="primeira()">Primeira viagem</button>
-        <button onclick="terceira()">Terceira viagem</button>
-        <button onclick="ultima()">Última viagem</button>
+        <button onclick="mostrar()">Mostrar Projetos</button>
     </div>
 
     <div id="div_resultado" class="resposta">
-
+        <div id="primeira"></div>
+        <div id="segunda"></div>
     </div>
 </body>
 
 </html>
 <!-- Atividade -->
 <script>
-    var viagens = []
 
-    function adicionar() {
-        viagens.push(in_local.value)
-    }
+    var projetos = []
 
-    function primeira() {
-        div_resultado.innerHTML = ''
 
-        if (viagens.length > 0) {
-            div_resultado.innerHTML += `<p>Primeira viagem: ${viagens[0]} <br></p>`
+    function cadastrar() {
+        primeira.innerHTML = ""
+        projetos.push(in_projetos.value)
+
+        if (projetos.length < 5) {
+
+            primeira.innerHTML += `<p>Você já fez ${projetos.length} projetos por isso você
+            é um profissional Júnior</p>`
+
+        } else if (projetos.length > 4 && projetos.length < 13) {
+
+            primeira.innerHTML += `<p>Você já fez ${projetos.length} projetos por isso você
+            é um profissional Pleno, desde o projeto: ${projetos[4]}</p>`
 
         } else {
-            div_resultado.innerHTML += `Ainda não viajou`
+
+            primeira.innerHTML += `<p>Você já fez ${projetos.length} projetos por isso você
+            é um profissional Sênior, desde o projeto: ${projetos[12]}</p>`
+
         }
     }
 
-    function terceira() {
-        div_resultado.innerHTML = ''
 
-        if (viagens.length > 0) {
-            div_resultado.innerHTML += `<p>Terceira viagem: ${viagens[2]} <br></p>`
+    function mostrar() {
+        segunda.innerHTML = ""
+        var contador = 0
 
-        } else {
-            div_resultado.innerHTML += `Ainda não fez a 3ª viagem`
+        while (contador < projetos.length) {
+            
+            segunda.innerHTML += `<p>${projetos[contador]}<br></p>`
+
+            contador++
         }
     }
 
-    function ultima (){
-        div_resultado.innerHTML = ''
 
-        if (viagens.length > 0) {
-            div_resultado.innerHTML += `<p>Última viagem: ${viagens[viagens.length - 1]} <br></p>`
-
-        } else {
-            div_resultado.innerHTML += `Ainda não viajou`
-        }
-    }
 </script>
 
 

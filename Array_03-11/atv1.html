@@ -9,8 +9,10 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
     * {
         margin: 0;
         padding: 0;
@@ -26,7 +28,7 @@
         background-color: #f5f5f5;
     }
 
-    .navBar{
+    .navBar {
         width: 30%;
         height: 4vmax;
         display: flex;
@@ -36,12 +38,13 @@
         /* position: absolute; */
     }
 
-    .navBar span{
+    .navBar span {
         font-size: 2.4em;
         color: #bb3838;
         position: relative;
         z-index: 3000;
         transition: all 500ms;
+        cursor: pointer;
     }
 
     nav {
@@ -49,19 +52,21 @@
         height: 30vmax;
         position: absolute;
         z-index: 1000;
-        left: -31%  ;
+        left: -31%;
         background-color: #f5f5f5;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         border-radius: 0px 20px 20px 0;
-        overflow-x: auto;
+        overflow-y: auto;
         box-shadow: 0 -1px 10px #383838;
         transition: all 1s;
     }
 
     nav ul {
         display: flex;
+        margin: 20px 0;
     }
 
     nav ul li {
@@ -91,6 +96,14 @@
         align-items: center;
         flex-direction: column;
         float: left;
+        background-color: #f5f5f56f;
+    }
+
+    .atividade .caixa {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .atividade p {
@@ -120,6 +133,7 @@
         cursor: pointer;
         outline: none;
         transition: all 1s;
+        margin: 5px;
     }
 
     .atividade button:hover {
@@ -135,11 +149,12 @@
         height: 400px;
         background-color: #bb3838;
         border-radius: 20px;
-        float: right;
         margin: 60px 100px;
-        position: relative;
+        position: absolute;
+        top: 3vmax;
+        right: 1vmax;
         z-index: 2;
-        display: none;
+        display: flex;
         justify-content: center;
         align-items: center;
         box-shadow: 0 0 15px #383838;
@@ -156,6 +171,22 @@
         <ul>
             <li><a href="./atv1.html">Atv 1</a></li>
             <li><a href="./atv2.html">Atv 2</a></li>
+        </ul>
+        <ul>
+            <li><a href="./atv3.html">Atv 3</a></li>
+            <li><a href="./atv4.html">Atv 4</a></li>
+        </ul>
+        <ul>
+            <li><a href="./atv5.html">Atv 5</a></li>
+            <li><a href="./atv6.html">Atv 6</a></li>
+        </ul>
+        <ul>
+            <li><a href="./atv7.html">Atv 7</a></li>
+            <li><a href="./atv8.html">Atv 8</a></li>
+        </ul>
+        <ul>
+            <li><a href="./atv9.html">Atv 9</a></li>
+            <li><a href="./atv10.html">Atv 10</a></li>
         </ul>
     </nav>
     <div class="navBar">

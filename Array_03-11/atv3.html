@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 2</title>
+    <title>Atividade 3</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
@@ -189,37 +189,31 @@
             <li><a href="./atv10.html">Atv 10</a></li>
         </ul>
     </nav>
+
     <div class="navBar">
         <span class="material-symbols-outlined" onclick="navbar()" id="btn-menu">
             menu
         </span>
     </div>
     <!-- 
-        2. Crie um Programa o qual:
+        3. Crie um programa onde o usuário vá cadastrando os bairros para onde já morou. Ele digita o nome do lugar e vai clicar em "Cadastrar bairro".
 
-            a) Tenha um campo "Destino de viagem" e um botão "Adicionar"
+            Deve haver um outro campo, onde ele digita apenas um número, indicando o local para onde morou, a partir do número 1 (porque os usuários comuns contam as coisas a partir do 1) e clica em "Relembrar moradia". Se ele informar 1, exiba o primeiro bairro cadastrado e assim por diante.
 
-            b) Ao clicar no botão, esse destino deve ser adicionado em algum lugar o qual o usuário não vê. Não existe problema em serem registrados valores repetidos
-
-            c) Deve haver os botões:
-
-            "Primeira viagem" - Ao clicar nele, aparece abaixo o primeiro local cadastrado ou "ainda não viajou", caso nenhuma viagem tenha sido registrada
-
-            "Terceira viagem" - Ao clicar nele, aparece abaixo o 3º local cadastrado ou "ainda fez a 3ª viagem", caso não tenha feito 3 viagens ainda
-
-            "Última viagem" - Ao clicar nele, aparece abaixo o último local cadastrado ou "ainda não viajou", caso nenhuma viagem tenha sido registrada
-
-            OBS: Obtenha esses três valores SOMENTE do vetor que criar
+            Porém, se ele informar um número maior do que a quantidade de bairros, exiba: "Você ainda não morou num Xº bairro!"
     -->
     <div class="atividade">
-        <p>Informe o destino da viagem:</p>
+        <p>Informe os bairros em que já morrou:</p>
         <div class="caixa">
-            <input type="text" id="in_local" placeholder="Destino da viagem">
-            <button onclick="adicionar()">Adicionar</button>
+            <input type="text" id="in_bairro" placeholder="Destino da viagem">
+            <button onclick="cadastrar()">Cadastrar bairro</button>
         </div>
-        <button onclick="primeira()">Primeira viagem</button>
-        <button onclick="terceira()">Terceira viagem</button>
-        <button onclick="ultima()">Última viagem</button>
+        <p style="text-align: center;">Pesquise em número, <br> levando em consideração a ordem cadastrada, <br> um dos
+            bairros cadastrados</p>
+        <div class="caixa">
+            <input type="number" id="in_pesquisa" placeholder="Pesquisar">
+            <button onclick="relembrar()">Relembrar moradia</button>
+        </div>
     </div>
 
     <div id="div_resultado" class="resposta">
@@ -228,46 +222,36 @@
 </body>
 
 </html>
+
 <!-- Atividade -->
 <script>
-    var viagens = []
+    var bairros = []
 
-    function adicionar() {
-        viagens.push(in_local.value)
+    function cadastrar() {
+        bairros.push(in_bairro.value)
     }
 
-    function primeira() {
-        div_resultado.innerHTML = ''
+    function relembrar() {
+        var contador = 0
 
-        if (viagens.length > 0) {
-            div_resultado.innerHTML += `<p>Primeira viagem: ${viagens[0]} <br></p>`
+        while (contador < bairros.length) {
 
-        } else {
-            div_resultado.innerHTML += `Ainda não viajou`
+            contador++
+            var atual = bairros[contador]
+
+            if (Number(in_pesquisa.value) - 1 == bairros.length - contador) {
+                div_resultado.innerHTML = `<p>${bairros[bairros.length - contador]}<p>`
+            }
+        }
+        if (Number(in_pesquisa.value) > bairros.length) {
+            
+            div_resultado.innerHTML = `<p>Você ainda não morou num 
+            ${in_pesquisa.value}º bairro!<p>`
+        
         }
     }
 
-    function terceira() {
-        div_resultado.innerHTML = ''
 
-        if (viagens.length > 0) {
-            div_resultado.innerHTML += `<p>Terceira viagem: ${viagens[2]} <br></p>`
-
-        } else {
-            div_resultado.innerHTML += `Ainda não fez a 3ª viagem`
-        }
-    }
-
-    function ultima (){
-        div_resultado.innerHTML = ''
-
-        if (viagens.length > 0) {
-            div_resultado.innerHTML += `<p>Última viagem: ${viagens[viagens.length - 1]} <br></p>`
-
-        } else {
-            div_resultado.innerHTML += `Ainda não viajou`
-        }
-    }
 </script>
 
 
