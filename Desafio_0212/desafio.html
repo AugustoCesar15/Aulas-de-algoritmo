@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+    <!-- 
+        a) Tenha um campo “Nome do Piloto” e os botões “Registrar" e "Realizar Corrida”;
+        b) Ao clicar em “Registrar”:
+            b.1.) Caso não tenha atingido o limite de 12 participantes, o piloto será cadastrado, para que seu carro participe do Grid.
+            b.2.) Caso já tenha registrado 12 participantes, emita um alerta explicativo e não faça mais nada.
+        c) Ao clicar em “Realizar Corrida”:
+            c.1.) Caso a quantidade de pilotos esteja entre 5 e 12, realize a corrida, prosseguindo para o item d).
+            c.2.) Caso contrário, emita um alerta explicativo e não faça mais nada.
+        d) Para realizar a corrida, todos os carros começam com 75 litros de combustível, onde correrão em uma pista de 20km, em que todos os carros deverão realizar 15 voltas.
+        e) A cada volta, será sorteada uma velocidade para cada carro, que deve estar entre 210 e 290, sem casas decimais.
+        f) Considere que em cada volta, o consumo base é de 5 litros de combustível para uma velocidade média de 250km/h (este é o consumo base para a velocidade base de referência).
+            f.1.) Porém, caso a velocidade sorteada seja acima de 250, o percentual desse excedente será o mesmo para o acréscimo no consumo do combustível.
+            f.2.) Caso a velocidade seja abaixo de 250, o percentual da redução será o mesmo para a redução no consumo do combustível.
+        g) Além do consumo de combustível, a cada volta também deve ser calculado o tempo que o carro levou para percorrer o trajeto, com base no tamanho da pista e a velocidade média.
+        h) Após cada volta, exiba na tela o texto "Volta X - Piloto: XPTO - Velocidade: 111 - Combustível: 222 - Tempo: 333", onde X é a volta, XPTO é o nome do piloto, 111 é a velocidade média sorteada, 222 é o combustível consumido e 333 é o tempo da volta.
+        i) Conforme o carro se movimenta e seu combustível é consumido, a cada volta deve validar se o carro ainda tem combustível, onde caso haja uma "pane seca" (ou seja, se o combustível acabar), o carro será desclassificado.
+        j) Ao final das 15 voltas, deve ser montado o "Pódio", com os três vencedores, exibindo a seguinte mensagem: 
+        "    1 - Carro: XPTO - Tempo Total: X
+            2 - Carro: XPTO - Tempo Total: Y
+            3 - Carro: XPTO - Tempo Total: Z   "
+
+        OBS: no item f), o cálculo de consumo do combustível deve ser feito comparando o valor sorteado com o consumo por velocidade base (5 litros por 250km/h), então para um carro de velocidade 275km/h, onde a velocidade é 10% acima de 250, ele consumirá 5.5 litros de combustível (ou seja, 10% acima de 5 litros).
+
+        OBS2: para o item g), calcule o tempo com a fórmula -> "Δt = (ΔS / Vm) * 60" ou seja, o tempo é igual a distância / velocidade * 60.
+
+        OBS3: para o item i), caso todos os carros sejam desclassificados por pane seca, não haverá ganhador, porém caso tenha ao menos 1 carro que finalizou a corrida, poderá montar o pódio, onde o carro que realizou a prova no menor tempo total (ou seja, a soma do tempo das voltas do carro) será o vencedor.
+    -->
+
+    <label>Nome do Piloto:</label>
+    <input type="text" id="in_nome">
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="realizarCorrida()">Realizar Corrida</button>
+
+    <div id="msg"></div>
+</body>
+
+</html>
+<script>
+    var piloto = []
+
+    function registrar() {
+        if (piloto.length >= 12) {
+            alert('Limite de pilotos atingido!')
+        } else {
+            var registro = in_nome.value
+            piloto.push(registro)
+        }
+    }
+
+    function realizarCorrida() {
+        msg.innerHTML = ''
+
+        if (piloto.length < 5) {
+            alert('Quantidade insuficiente de pilotos!')
+        } else {
+            var distancia = 20
+            var voltas = 15
+            var contador = 1
+
+            for (var i = 0; i < piloto.length; i++) {
+
+                var velocidade = parseInt(210 + Math.random() * 80) 
+
+                var combustivel = velocidade / 100 * 2
+
+                var tempo = (distancia / velocidade * 60).toFixed(1)
+
+                var atual = piloto[i]
+
+                msg.innerHTML += `Volta ${contador} - Piloto: ${piloto[i]} - Velocidade: ${velocidade} - Combustível: ${combustivel} - Tempo: ${tempo} <br>`
+            }
+        }
+    }
+
+</script>
